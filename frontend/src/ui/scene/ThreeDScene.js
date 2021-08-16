@@ -3,17 +3,23 @@ import {Canvas} from "@react-three/fiber";
 import {Environment} from "@react-three/drei";
 import Kakashi from "./Kakashi";
 import backgroundHDR from "./black-hdri.HDR"
+import {VRCanvas, DefaultXRControllers} from "@react-three/xr";
+import {OrbitControls} from "@react-three/drei";
+import Blender from "./Blender";
+
 
 export const ThreeDScene = () => {
     return (
         <>
-            <Canvas  shadows
-                     camera={{ position: [0, 15, 25], fov: 55 }}
-                     resize={0.5}
-                     onCreated={({ camera }) => camera.lookAt(0, 0, -35)}
+            <VRCanvas
+                // shadows
+                camera={{position: [0, 15, 35], fov: 55}}
+                // resize={0.5}
+                // onCreated={({camera}) => camera.lookAt(0, 0, -35)}
             >
 
                 {/*<OrbitControls />*/}
+                <DefaultXRControllers />
                 {/*<ambientLight intensity={1} />*/}
                 <directionalLight
                     castShadow
@@ -34,8 +40,9 @@ export const ThreeDScene = () => {
                     <group>
                         {/*<Goku01 gokuAction={gokuAction} name={name} />*/}
                         {/*<Naruto narutoAction={narutoAction} name={name} />*/}
-                        <Kakashi />
+                        <Kakashi/>
                         {/*<Korra korraAction={korraAction} name={name} />*/}
+                        {/*<Blender />*/}
 
                         <mesh
                             rotation={[-Math.PI / 2, 0, 0]}
@@ -44,11 +51,11 @@ export const ThreeDScene = () => {
                         >
                             <planeBufferGeometry attach='geometry' args={[20, 90]}/>
                             {/*<shadowMaterial attach='material' opacity={0.3} />*/}
-                            <meshStandardMaterial attach='material' color={"#add4e3"} />
+                            <meshStandardMaterial attach='material' color={"#add4e3"}/>
                         </mesh>
                     </group>
                 </Suspense>
-            </Canvas>
+            </VRCanvas>
         </>
     )
 }
