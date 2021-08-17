@@ -1,11 +1,12 @@
-import React, {Suspense} from "react";
+import React, {Suspense, useEffect} from "react";
 import {Canvas} from "@react-three/fiber";
 import {Environment} from "@react-three/drei";
 import Kakashi from "./Kakashi";
 import backgroundHDR from "./black-hdri.HDR"
-import {VRCanvas, DefaultXRControllers} from "@react-three/xr";
+import {VRCanvas, DefaultXRControllers, Hands, useXR} from "@react-three/xr";
 import {OrbitControls} from "@react-three/drei";
 import Blender from "./Blender";
+
 
 
 export const ThreeDScene = () => {
@@ -13,13 +14,16 @@ export const ThreeDScene = () => {
         <>
             <VRCanvas
                 // shadows
-                camera={{position: [0, 15, 35], fov: 55}}
+                // camera={{position: [0, 15, 35], fov: 55}}
                 // resize={0.5}
                 // onCreated={({camera}) => camera.lookAt(0, 0, -35)}
             >
 
                 {/*<OrbitControls />*/}
                 <DefaultXRControllers />
+
+                <Hands />
+
                 {/*<ambientLight intensity={1} />*/}
                 <directionalLight
                     castShadow
