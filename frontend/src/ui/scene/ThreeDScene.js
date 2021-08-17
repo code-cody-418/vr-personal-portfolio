@@ -1,15 +1,18 @@
 import React, {Suspense, useEffect} from "react";
-import {Canvas} from "@react-three/fiber";
+import {Canvas, useFrame} from "@react-three/fiber";
 import {Environment} from "@react-three/drei";
 import Kakashi from "./Kakashi";
 import backgroundHDR from "./black-hdri.HDR"
-import {VRCanvas, DefaultXRControllers, Hands, useXR} from "@react-three/xr";
+import {VRCanvas, DefaultXRControllers, Hands, useXR, useController, XRController} from "@react-three/xr";
 import {OrbitControls} from "@react-three/drei";
 import Blender from "./Blender";
 
 
 
+
 export const ThreeDScene = () => {
+
+
     return (
         <>
             <VRCanvas
@@ -19,7 +22,7 @@ export const ThreeDScene = () => {
                 // onCreated={({camera}) => camera.lookAt(0, 0, -35)}
             >
 
-                {/*<OrbitControls />*/}
+                <OrbitControls />
                 <DefaultXRControllers />
 
                 <Hands />
@@ -44,9 +47,19 @@ export const ThreeDScene = () => {
                     <group>
                         {/*<Goku01 gokuAction={gokuAction} name={name} />*/}
                         {/*<Naruto narutoAction={narutoAction} name={name} />*/}
-                        <Kakashi/>
+                        <Kakashi
+                            position={[0, 0, -3]}
+                        />
                         {/*<Korra korraAction={korraAction} name={name} />*/}
-                        {/*<Blender />*/}
+                        <Blender
+                            position={[-10, 0, 3]}
+                            rotation={[0, 1, 0]}
+
+                        />
+                        <Blender
+                            position={[10, 0, 3]}
+                            rotation={[0, -1, 0]}
+                        />
 
                         <mesh
                             rotation={[-Math.PI / 2, 0, 0]}

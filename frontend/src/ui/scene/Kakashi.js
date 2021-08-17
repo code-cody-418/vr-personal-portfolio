@@ -11,11 +11,13 @@ export default function Kakashi(props) {
   const { nodes, materials, animations } = useGLTF(kakashiGLB)
   const { actions } = useAnimations(animations, group)
 
-  // useEffect(() => {
-  //   actions[props.kakashiAction].reset().fadeIn(0.5).play()
-  //   return () => actions[props.kakashiAction].fadeOut(0.5)
-  // }, [actions, props.kakashiAction]);
-  // console.log('Kakashi Actions:', actions)
+  const [action, setAction] = useState("kick")
+
+  useEffect(() => {
+    actions.kick.fadeIn(0.5).play()
+    // return () => actions[actions.action].fadeOut(0.5)
+  }, [actions]);
+  console.log('Kakashi Actions:', actions)
 
   //This enables the 3d-model to appear and disappear from canvas
   // const [visible, setVisible] = useState(true)
@@ -30,7 +32,7 @@ export default function Kakashi(props) {
   return (
     <group ref={group} {...props} dispose={null}>
       {/*<group rotation={[Math.PI / 2, 0, 0]} scale={0.1} visible={visible}>*/}
-      <group rotation={[Math.PI / 2, 0, 0]} scale={0.1} >
+      <group rotation={[Math.PI / 2, 0, 0]} scale={0.01} >
         <primitive object={nodes.mixamorigHips} />
         <skinnedMesh
             castShadow
