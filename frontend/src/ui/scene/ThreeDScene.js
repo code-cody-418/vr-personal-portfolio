@@ -43,7 +43,7 @@ export const ThreeDScene = () => {
                 <pointLight position={[-10, 0, -20]} intensity={0.5}/>
                 <pointLight position={[0, 0, 0]} intensity={1.5}/>
                 <Suspense fallback={null}>
-                    <Environment files={backgroundHDR} background={true}/>
+                    <Environment files={backgroundHDR} background={true} />
                     <group>
                         {/*<Goku01 gokuAction={gokuAction} name={name} />*/}
                         {/*<Naruto narutoAction={narutoAction} name={name} />*/}
