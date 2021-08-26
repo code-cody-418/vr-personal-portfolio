@@ -22,7 +22,22 @@ export const ThreeDScene = () => {
                 // onCreated={({camera}) => camera.lookAt(0, 0, -35)}
             >
 
-                <OrbitControls />
+                <OrbitControls
+
+                    enablePan={false}
+
+                    enableZoom={true}
+                    maxDistance={5}
+                    rotateSpeed={0.3}
+
+                    //vertical angle limit
+                    minPolarAngle={0}
+                    maxPolarAngle={1.5}
+
+                    //horizontal angle limit
+                    // minAzimuthAngle={-1}
+                    // maxAzimuthAngle={1}
+                />
                 <DefaultXRControllers />
 
                 <Hands />
