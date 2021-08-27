@@ -1,18 +1,16 @@
 import React, {Suspense, useEffect} from "react";
+import * as THREE from "three"
 import {Canvas, useFrame} from "@react-three/fiber";
-import {Environment} from "@react-three/drei";
+import {Environment, Stars} from "@react-three/drei";
 import Kakashi from "./Kakashi";
 import backgroundHDR from "./black-hdri.HDR"
 import {VRCanvas, DefaultXRControllers, Hands, useXR, useController, XRController} from "@react-three/xr";
 import {OrbitControls} from "@react-three/drei";
 import Blender from "./Blender";
-
-
+import {Text} from "./Text";
 
 
 export const ThreeDScene = () => {
-
-
     return (
         <>
             <VRCanvas
@@ -76,14 +74,23 @@ export const ThreeDScene = () => {
                             rotation={[0, -1, 0]}
                         />
 
+                        <Text
+                            text="Codys Portfolio"
+                            position={[-6, 2, -3]}
+                            // rotation={[0, -1, 0]}
+                        />
+
+                        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade />
+
+
                         <mesh
                             rotation={[-Math.PI / 2, 0, 0]}
                             position={[0, 0, 0]}
                             receiveShadow
                         >
                             <planeBufferGeometry attach='geometry' args={[20, 90]}/>
-                            {/*<shadowMaterial attach='material' opacity={0.3} />*/}
-                            <meshStandardMaterial attach='material' color={"#add4e3"}/>
+                            <shadowMaterial attach='material' opacity={0.3} />
+                            {/*<meshStandardMaterial attach='material' color={"#add4e3"}/>*/}
                         </mesh>
                     </group>
                 </Suspense>
