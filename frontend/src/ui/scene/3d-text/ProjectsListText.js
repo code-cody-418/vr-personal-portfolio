@@ -1,14 +1,14 @@
 import React, {useMemo, useRef} from "react";
 import * as THREE from "three"
-import {useFrame, useLoader} from "@react-three/fiber";
+import {useLoader} from "@react-three/fiber";
 
 
-export const Text =({ text, position, vAlign = "center", hAlign = "center" }) => {
+export const ProjectsListText =({ text, position, rotation }) => {
     const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
     const config = useMemo(
         () => ({
             font: font,
-            size: 2,
+            size: 1,
             height: 0.2,
             curveSegments: 32,
             bevelEnabled: true,
@@ -20,18 +20,11 @@ export const Text =({ text, position, vAlign = "center", hAlign = "center" }) =>
         [font]
     );
     const mesh = useRef();
-    // useFrame(({ clock }) => {
-    //     const size = new THREE.Vector3();
-    //     mesh.current.geometry.computeBoundingBox();
-    //     mesh.current.geometry.boundingBox.getSize(size);
-    //     mesh.current.position.x =
-    //         hAlign === "center" ? -size.x / 2 : hAlign
-    // });
     return (
         <>
-        <group position={position}>
+        <group position={position} rotation={rotation}>
             <mesh ref={mesh} >
-                <textGeometry center args={[text, config]} />
+                <textGeometry args={[text, config]} />
                 <meshNormalMaterial />
             </mesh>
         </group>

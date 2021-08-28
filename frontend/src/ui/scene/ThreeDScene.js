@@ -1,4 +1,4 @@
-import React, {Suspense, useEffect} from "react";
+import React, {Suspense, useEffect, useState} from "react";
 import * as THREE from "three"
 import {Canvas, useFrame} from "@react-three/fiber";
 import {Environment, Stars} from "@react-three/drei";
@@ -7,18 +7,32 @@ import backgroundHDR from "./black-hdri.HDR"
 import {VRCanvas, DefaultXRControllers, Hands, useXR, useController, XRController} from "@react-three/xr";
 import {OrbitControls} from "@react-three/drei";
 import Blender from "./Blender";
-import {Text} from "./Text";
+import {TitleText} from "./3d-text/TitleText";
+import {SkillsTitleText} from "./3d-text/SkillsTitleText";
+import {ProjectsTitleText} from "./3d-text/ProjectsTitleText";
+import {ProjectsListText} from "./3d-text/ProjectsListText";
+import {SkillsListText} from "./3d-text/SkillsListText";
+import {InfoModal} from "./InfoModal";
 
 
 export const ThreeDScene = () => {
+
+    //to open and close the information modal
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <>
+            <InfoModal show={show} handleClose={handleClose} handleShow={handleShow}/>
             <VRCanvas
                 // shadows
                 // camera={{position: [0, 15, 35], fov: 55}}
                 // resize={0.5}
                 // onCreated={({camera}) => camera.lookAt(0, 0, -35)}
             >
+
 
                 <OrbitControls
 
@@ -36,9 +50,9 @@ export const ThreeDScene = () => {
                     // minAzimuthAngle={-1}
                     // maxAzimuthAngle={1}
                 />
-                <DefaultXRControllers />
+                <DefaultXRControllers/>
 
-                <Hands />
+                <Hands/>
 
                 {/*<ambientLight intensity={1} />*/}
                 <directionalLight
@@ -56,31 +70,49 @@ export const ThreeDScene = () => {
                 <pointLight position={[-10, 0, -20]} intensity={0.5}/>
                 <pointLight position={[0, 0, 0]} intensity={1.5}/>
                 <Suspense fallback={null}>
-                    <Environment files={backgroundHDR} background={true} />
+                    <Environment files={backgroundHDR} background={true}/>
                     <group>
-                        {/*<Goku01 gokuAction={gokuAction} name={name} />*/}
-                        {/*<Naruto narutoAction={narutoAction} name={name} />*/}
-                        <Kakashi
-                            position={[0, 0, -3]}
-                        />
-                        {/*<Korra korraAction={korraAction} name={name} />*/}
-                        <Blender
-                            position={[-10, 0, 3]}
-                            rotation={[0, 1, 0]}
 
+                        <group onClick={handleShow}>
+                            <TitleText
+                                text="Codys Portfolio"
+                                position={[-6, 2, -3]}
+                                // rotation={[0, -1, 0]}
+                                // onClick={handleShow}
+                            />
+                        </group>
+
+                        <SkillsTitleText
+                            text="Skills"
+                            position={[10, 3, 3]}
+                            rotation={[0, -1, 0]}
                         />
                         <Blender
-                            position={[10, 0, 3]}
+                            position={[10, -2, 3]}
+                            rotation={[0, -1, 0]}
+                        />
+                        <SkillsListText
+                            text="React"
+                            position={[10, 1, 3]}
                             rotation={[0, -1, 0]}
                         />
 
-                        <Text
-                            text="Codys Portfolio"
-                            position={[-6, 2, -3]}
-                            // rotation={[0, -1, 0]}
+                        <ProjectsTitleText
+                            text="Projects"
+                            position={[-15, 3, 5]}
+                            rotation={[0, 1, 0]}
+                        />
+                        <ProjectsListText
+                            text="Exp Ninja"
+                            position={[-15, 1, 5]}
+                            rotation={[0, 1, 0]}
+                        />
+                        <Kakashi
+                            position={[-10, 0, 0]}
+                            rotation={[0, 1, 0]}
                         />
 
-                        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade />
+                        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade/>
 
 
                         <mesh
@@ -89,7 +121,7 @@ export const ThreeDScene = () => {
                             receiveShadow
                         >
                             <planeBufferGeometry attach='geometry' args={[20, 90]}/>
-                            <shadowMaterial attach='material' opacity={0.3} />
+                            <shadowMaterial attach='material' opacity={0.3}/>
                             {/*<meshStandardMaterial attach='material' color={"#add4e3"}/>*/}
                         </mesh>
                     </group>
