@@ -8,7 +8,7 @@ export const InfoModal = ({ show, handleClose, handleShow }) => {
             {/*    Launch demo modal*/}
             {/*</Button>*/}
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} dialogClassName="menu-modal">
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>

@@ -15,14 +15,7 @@ import {SkillsListText} from "./3d-text/SkillsListText";
 import {InfoModal} from "./InfoModal";
 
 
-export const ThreeDScene = () => {
-
-    //to open and close the information modal
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+export const ThreeDScene = ({ show, handleClose, handleShow }) => {
     return (
         <>
             <InfoModal show={show} handleClose={handleClose} handleShow={handleShow}/>
