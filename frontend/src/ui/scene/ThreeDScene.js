@@ -15,10 +15,12 @@ import {SkillsListText} from "./3d-text/SkillsListText";
 import {InfoModal} from "./InfoModal";
 
 
-export const ThreeDScene = ({ show, handleClose, handleShow }) => {
-    const { controllers } = useXR()
+export const ThreeDScene = ({show, handleClose, handleShow}) => {
+    const {controllers} = useXR()
 
     const [isHovered, setIsHovered] = useState(false)
+
+    const [color, setColor] = useState("#ff0000")
 
     return (
         <>
@@ -79,12 +81,13 @@ export const ThreeDScene = ({ show, handleClose, handleShow }) => {
                             />
                         </group>
 
-                        <Interactive onSelect={ () => console.log('clicked!') } onHover={() => setIsHovered(true)}>
-                        <SkillsTitleText
-                            text="Skills"
-                            position={[10, 3, 3]}
-                            rotation={[0, -1, 0]}
-                        />
+                        <Interactive onSelect={() => setColor("#0000ff")} onHover={() => setIsHovered(true)}>
+                            <SkillsTitleText
+                                text="Skills"
+                                position={[10, 3, 3]}
+                                rotation={[0, -1, 0]}
+                                color={color}
+                            />
                         </Interactive>
                         <Blender
                             position={[10, -2, 3]}
@@ -119,8 +122,8 @@ export const ThreeDScene = ({ show, handleClose, handleShow }) => {
                             position={[0, 0, 0]}
                             receiveShadow
                         >
-                            <planeBufferGeometry attach='geometry' args={[20, 90]}/>
-                            <shadowMaterial attach='material' opacity={0.3}/>
+                            {/*<planeBufferGeometry attach='geometry' args={[20, 90]}/>*/}
+                            {/*<shadowMaterial attach='material' opacity={0.3}/>*/}
                             {/*<meshStandardMaterial attach='material' color={"#add4e3"}/>*/}
                         </mesh>
                     </group>

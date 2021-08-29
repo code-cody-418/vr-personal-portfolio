@@ -3,7 +3,7 @@ import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 
 
-export const SkillsTitleText =({ text, position, rotation }) => {
+export const SkillsTitleText =({ text, position, rotation, color}) => {
     const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
     const config = useMemo(
         () => ({
@@ -25,7 +25,7 @@ export const SkillsTitleText =({ text, position, rotation }) => {
         <group position={position} rotation={rotation}>
             <mesh ref={mesh} >
                 <textGeometry args={[text, config]} />
-                <meshNormalMaterial />
+                <meshStandardMaterial color={color} />
             </mesh>
         </group>
         </>
