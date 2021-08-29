@@ -4,7 +4,7 @@ import {Canvas, useFrame} from "@react-three/fiber";
 import {Environment, Stars} from "@react-three/drei";
 import Kakashi from "./Kakashi";
 import backgroundHDR from "./black-hdri.HDR"
-import {VRCanvas, DefaultXRControllers, Hands, useXR, useController, XRController} from "@react-three/xr";
+import {VRCanvas, DefaultXRControllers, Hands, useXR, useController, XRController, Interactive} from "@react-three/xr";
 import {OrbitControls} from "@react-three/drei";
 import Blender from "./Blender";
 import {TitleText} from "./3d-text/TitleText";
@@ -16,6 +16,10 @@ import {InfoModal} from "./InfoModal";
 
 
 export const ThreeDScene = ({ show, handleClose, handleShow }) => {
+    const { controllers } = useXR()
+
+    const [isHovered, setIsHovered] = useState(false)
+
     return (
         <>
             <InfoModal show={show} handleClose={handleClose} handleShow={handleShow}/>
@@ -75,11 +79,13 @@ export const ThreeDScene = ({ show, handleClose, handleShow }) => {
                             />
                         </group>
 
+                        <Interactive onSelect={ () => console.log('clicked!') } onHover={() => setIsHovered(true)}>
                         <SkillsTitleText
                             text="Skills"
                             position={[10, 3, 3]}
                             rotation={[0, -1, 0]}
                         />
+                        </Interactive>
                         <Blender
                             position={[10, -2, 3]}
                             rotation={[0, -1, 0]}
