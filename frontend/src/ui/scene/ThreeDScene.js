@@ -1,7 +1,7 @@
 import React, {Suspense, useEffect, useState} from "react";
 import * as THREE from "three"
 import {Canvas, useFrame} from "@react-three/fiber";
-import {Environment, Stars} from "@react-three/drei";
+import {Environment, PerspectiveCamera, Stars} from "@react-three/drei";
 import Kakashi from "./Kakashi";
 import backgroundHDR from "./black-hdri.HDR"
 import {VRCanvas, DefaultXRControllers, Hands, useXR, useController, XRController, Interactive} from "@react-three/xr";
@@ -16,10 +16,6 @@ import {InfoModal} from "./InfoModal";
 
 
 export const ThreeDScene = ({show, handleClose, handleShow}) => {
-    const {controllers} = useXR()
-
-    const [isHovered, setIsHovered] = useState(false)
-
     const [color, setColor] = useState("#ff0000")
 
     return (
@@ -34,17 +30,15 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
 
 
                 <OrbitControls
-
                     enablePan={false}
-
-                    enableZoom={true}
+                    enableZoom={false}
                     maxDistance={5}
                     rotateSpeed={0.3}
-
                     //vertical angle limit
-                    minPolarAngle={0}
-                    maxPolarAngle={1.5}
-
+                    // minPolarAngle={0}
+                    // maxPolarAngle={1.5}
+                    minPolarAngle={1.5708}
+                    maxPolarAngle={1.5708}
                     //horizontal angle limit
                     // minAzimuthAngle={-1}
                     // maxAzimuthAngle={1}
@@ -53,7 +47,7 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
 
                 <Hands/>
 
-                {/*<ambientLight intensity={1} />*/}
+                <ambientLight intensity={1} />
                 <directionalLight
                     castShadow
                     position={[0, 15, 25]}
@@ -72,16 +66,21 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                     <Environment files={backgroundHDR} background={true}/>
                     <group>
 
-                        <group onClick={handleShow}>
+                        <group
+                            // onClick={handleShow}
+                            // onClick={({camera}) => camera.lookAt(90, 0, -35)}
+
+                        >
                             <TitleText
                                 text="Codys Portfolio"
                                 position={[-6, 2, -3]}
                                 // rotation={[0, -1, 0]}
-                                // onClick={handleShow}
                             />
                         </group>
 
-                        <Interactive onSelect={() => setColor("#0000ff")} onHover={() => setIsHovered(true)}>
+                        <Interactive
+                            onSelect={() => setColor("#0000ff")}
+                            onHover={() => console.log("Hovered")}>
                             <SkillsTitleText
                                 text="Skills"
                                 position={[10, 3, 3]}
@@ -115,17 +114,6 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                         />
 
                         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade/>
-
-
-                        <mesh
-                            rotation={[-Math.PI / 2, 0, 0]}
-                            position={[0, 0, 0]}
-                            receiveShadow
-                        >
-                            {/*<planeBufferGeometry attach='geometry' args={[20, 90]}/>*/}
-                            {/*<shadowMaterial attach='material' opacity={0.3}/>*/}
-                            {/*<meshStandardMaterial attach='material' color={"#add4e3"}/>*/}
-                        </mesh>
                     </group>
                 </Suspense>
             </VRCanvas>
