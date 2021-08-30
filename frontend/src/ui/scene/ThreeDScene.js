@@ -1,7 +1,7 @@
 import React, {Suspense, useEffect, useState} from "react";
 import * as THREE from "three"
 import {Canvas, useFrame} from "@react-three/fiber";
-import {Environment, PerspectiveCamera, Stars} from "@react-three/drei";
+import {Environment, PerspectiveCamera, Stars, TransformControls} from "@react-three/drei";
 import Kakashi from "./Kakashi";
 import backgroundHDR from "./black-hdri.HDR"
 import {VRCanvas, DefaultXRControllers, Hands, useXR, useController, XRController, Interactive} from "@react-three/xr";
@@ -68,26 +68,40 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
 
                         <group
                             // onClick={handleShow}
-                            // onClick={({camera}) => camera.lookAt(90, 0, -35)}
-
+                            onClick={({camera}) => camera.lookAt(30, 0, 0)}
                         >
                             <TitleText
                                 text="Codys Portfolio"
-                                position={[-6, 2, -3]}
+                                position={[-7, 0, -10]}
                                 // rotation={[0, -1, 0]}
                             />
                         </group>
+                        <group
+                            // onClick={handleShow}
+                            onClick={({camera}) => camera.lookAt(0, 0, 0)}
+                        >
+                            <TitleText
+                                text="Back"
+                                position={[0, 0, 10]}
+                            />
+                        </group>
 
+
+                        <group
+                            // onClick={handleShow}
+                            onClick={({camera}) => camera.lookAt(30, 0, 0)}
+                        >
                         <Interactive
                             onSelect={() => setColor("#0000ff")}
                             onHover={() => console.log("Hovered")}>
                             <SkillsTitleText
                                 text="Skills"
-                                position={[10, 3, 3]}
+                                position={[10, 3, 0]}
                                 rotation={[0, -1, 0]}
                                 color={color}
                             />
                         </Interactive>
+                        </group>
                         <Blender
                             position={[10, -2, 3]}
                             rotation={[0, -1, 0]}
@@ -98,11 +112,21 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                             rotation={[0, -1, 0]}
                         />
 
+                        {/*<TransformControls*/}
+                        {/*// enabled={true}*/}
+                        {/*// showX={true}*/}
+                        {/*>*/}
+                        <group
+                            // onClick={handleShow}
+                            onClick={({camera}) => camera.lookAt(-30, 0, 0)}
+                        >
                         <ProjectsTitleText
                             text="Projects"
                             position={[-15, 3, 5]}
                             rotation={[0, 1, 0]}
                         />
+                        </group>
+                        {/*</TransformControls>*/}
                         <ProjectsListText
                             text="Exp Ninja"
                             position={[-15, 1, 5]}
