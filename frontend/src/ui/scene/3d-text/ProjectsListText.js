@@ -1,10 +1,6 @@
 import React, {useMemo, useRef} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
-import {Interactive} from "@react-three/xr";
-import {SkillsTitleText} from "./SkillsTitleText";
-import Blender from "../Blender";
-import {SkillsListText} from "./SkillsListText";
 import Kakashi from "../Kakashi";
 
 

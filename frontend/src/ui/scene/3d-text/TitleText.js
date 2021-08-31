@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
-import {useFrame, useLoader} from "@react-three/fiber";
+import {useLoader} from "@react-three/fiber";
 import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 
