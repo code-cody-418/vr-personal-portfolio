@@ -7,15 +7,11 @@ import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 export const TitleText = ({handleShow, handleClose }) => {
 
-
-    const FontConfig = ({text, position}) => {
+    const FontConfig = ({text}) => {
         const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
 
-
-        //sets the size of the 3d text based on mobile or desktop
-
+        //sets the size of the 3d text based on mobile or desktop using a custom hook
         const { titleSize } = useResponsive3d()
-
 
         const config = useMemo(
             () => ({
@@ -33,21 +29,14 @@ export const TitleText = ({handleShow, handleClose }) => {
         );
         const mesh = useRef();
 
-        //hover cursor change
-        const [hovered, setHovered] = useState(false)
 
-        useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
 
         return (
             <>
                 <group
-                    // position={position}
-                    onPointerOver={() => setHovered(true)}
-                    onPointerOut={() => setHovered(false)}
-                    // scale={0.01}
                 >
                     <mesh ref={mesh} >
-                        <textGeometry center args={[text, config]} />
+                        <textGeometry args={[text, config]} />
                         <meshNormalMaterial />
                     </mesh>
                 </group>
@@ -59,28 +48,20 @@ export const TitleText = ({handleShow, handleClose }) => {
 
         const { titlePosition } = useResponsive3d()
 
+        //hover cursor change
+        const [hovered, setHovered] = useState(false)
+        useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
+
         return (
             <>
                 <group
                     onClick={handleShow}
+                    onPointerOver={() => setHovered(true)}
+                    onPointerOut={() => setHovered(false)}
                     position={[titlePosition, -1, -30]}
-
                 >
                     <FontConfig
                         text="Codys Portfolio"
-
-                        // rotation={[0, -1, 0]}
-                    />
-                </group>
-                <group
-                    // onClick={handleShow}
-
-                    onClick={({camera}) => camera.lookAt(0, 0, 0)}
-                    position={[0, -1, 30]}
-                >
-                    <FontConfig
-                        text="Back"
-
                     />
                 </group>
             </>

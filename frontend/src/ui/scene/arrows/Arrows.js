@@ -12,13 +12,12 @@ export const ReferenceCenter = () => {
             <group
                 onPointerOver={() => setHovered(true)}
                 onPointerOut={() => setHovered(false)}
-                onClick={({camera}) => camera.lookAt(30, 0, 0)}
+                // onClick={({camera}) => camera.lookAt(30, 0, 0)}
             >
                 <Box
                     position={[0, -1, -29]}
                     // rotation={[0, -1, 0]}
                     visible={true}
-
                 />
             </group>
         </>
@@ -37,6 +36,7 @@ export const RightArrow = () => {
             onPointerOver={() => setHovered(true)}
             onPointerOut={() => setHovered(false)}
             onClick={({camera}) => camera.lookAt(30, 0, 0)}
+            visible={false}
         >
             <Box
                 position={[10, -2, -10]}

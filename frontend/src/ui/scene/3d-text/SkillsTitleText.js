@@ -5,6 +5,7 @@ import {Interactive} from "@react-three/xr";
 
 
 export const SkillsTitleText = () => {
+
     const [color, setColor] = useState("#ff0000")
 
     const FontConfig = ({text, position, rotation, color}) => {
@@ -39,13 +40,13 @@ export const SkillsTitleText = () => {
         return (
             <>
                 <group
-                    // onClick={handleShow}
                     onClick={ () => setColor("#0000ff")}
 
                 >
                     <Interactive
                         onSelect={() => setColor("#0000ff")}
-                        onHover={() => console.log("Hovered")}>
+                        onHover={() => console.log("Hovered")}
+                    >
                         <FontConfig
                             text="Tech Skills"
                             position={[30, 6, 0]}

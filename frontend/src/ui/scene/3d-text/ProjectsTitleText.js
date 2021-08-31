@@ -36,14 +36,7 @@ export const ProjectsTitleText = () => {
     const TitleText = () => {
         return (
             <>
-                {/*<TransformControls*/}
-                {/*// enabled={true}*/}
-                {/*// showX={true}*/}
-                {/*>*/}
                 <group
-                    // onClick={handleShow}
-                    onClick={({camera}) => camera.lookAt(-30, 0, 0)}
-
                 >
                     <FontConfig
                         text="Projects"
@@ -51,7 +44,6 @@ export const ProjectsTitleText = () => {
                         rotation={[0, 1.570796, 0]}
                     />
                 </group>
-                {/*</TransformControls>*/}
             </>
         )
     }
