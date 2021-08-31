@@ -13,6 +13,7 @@ import {ProjectsTitleText} from "./3d-text/ProjectsTitleText";
 import {ProjectsListText} from "./3d-text/ProjectsListText";
 import {SkillsListText} from "./3d-text/SkillsListText";
 import {InfoModal} from "./InfoModal";
+import {RightArrow} from "./arrows/Arrows";
 
 
 export const ThreeDScene = ({show, handleClose, handleShow}) => {
@@ -28,21 +29,30 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
             >
 
                 <OrbitControls
-                    enablePan={false}
-                    enableZoom={true}
-                    // minZoom={0}
-                    // maxZoom={5}
-                    minDistance={0}
-                    maxDistance={3}
-                    rotateSpeed={0.3}
+                    // enablePan={false}
+                    // enableZoom={true}
+                    //
+                    // distance of camera creation
+                    // minDistance={0}
+                    // maxDistance={3}
+
+                    // rotateSpeed={0.3}
+                    //
                     //vertical angle limit
-                    // minPolarAngle={0}
-                    // maxPolarAngle={1.5}
-                    minPolarAngle={1.5708}
-                    maxPolarAngle={1.5708}
-                    //horizontal angle limit
-                    // minAzimuthAngle={-1}
-                    // maxAzimuthAngle={1}
+                    // minPolarAngle={1.5708}
+                    // maxPolarAngle={1.5708}
+
+                    // horizontal angle limit
+                    // minAzimuthAngle={-1.57}
+                    // maxAzimuthAngle={1.57}
+
+                    // // extras
+                    // // minZoom={0}
+                    // // maxZoom={5}
+                    //
+                    // //vertical angle limit
+                    // // minPolarAngle={0}
+                    // // maxPolarAngle={1.5}
                 />
                 <DefaultXRControllers/>
                 <Hands/>
@@ -72,7 +82,43 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                         <SkillsTitleText />
                         <SkillsListText />
 
+                        <RightArrow />
+
                         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade/>
+
+                        {/*floor*/}
+                        <mesh
+                            rotation={[-Math.PI / 2, 0, 0]}
+                            position={[0, -1, 0]}
+                            // receiveShadow
+                        >
+                            <planeBufferGeometry attach='geometry' args={[20, 90]}/>
+                            {/*<shadowMaterial attach='material' opacity={0.3} />*/}
+                            <meshStandardMaterial attach='material' color={"#add4e3"} />
+                        </mesh>
+
+                        {/*projects wall*/}
+                        <mesh
+                            rotation={[-Math.PI / 2, 1.57, 0]}
+                            position={[-30, 3, 5]}
+                            // receiveShadow
+                        >
+                            <planeBufferGeometry attach='geometry' args={[20, 90]}/>
+                            {/*<shadowMaterial attach='material' opacity={0.3} />*/}
+                            <meshStandardMaterial attach='material' color={"#add4e3"} />
+                        </mesh>
+
+                        {/*skills wall*/}
+                        <mesh
+                            rotation={[-Math.PI / 2, -1.57, 0]}
+                            position={[30, 8, 0]}
+                            // receiveShadow
+                        >
+                            <planeBufferGeometry attach='geometry' args={[20, 90]}/>
+                            {/*<shadowMaterial attach='material' opacity={0.3} />*/}
+                            <meshStandardMaterial attach='material' color={"#8f9bee"} />
+                        </mesh>
+
                     </group>
                 </Suspense>
             </VRCanvas>

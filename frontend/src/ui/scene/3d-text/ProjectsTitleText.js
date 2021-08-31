@@ -43,6 +43,7 @@ export const ProjectsTitleText = () => {
                 <group
                     // onClick={handleShow}
                     onClick={({camera}) => camera.lookAt(-30, 0, 0)}
+
                 >
                     <FontConfig
                         text="Projects"

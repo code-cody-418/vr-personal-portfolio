@@ -1,11 +1,11 @@
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useFrame, useLoader} from "@react-three/fiber";
+import {useResponsive3d} from "../../../customHooks/useResponsive3d";
+
 
 
 export const TitleText = () => {
-    // console.log("Window InnerHight", window.innerHeight, "Window InnerWidth", window.innerWidth)
-
 
 
     const FontConfig = ({text, position}) => {
@@ -13,29 +13,9 @@ export const TitleText = () => {
 
 
         //sets the size of the 3d text based on mobile or desktop
-        const [titleSize, setTitleSize] = useState(1)
 
-        const [width, setWidth] = useState(window.innerWidth)
-        const breakpoint = 620
+        const { titleSize } = useResponsive3d()
 
-        useEffect( () => {
-            const handleWindowResize = () => setWidth(window.innerWidth)
-            window.addEventListener("resize", handleWindowResize)
-            console.log("width", width)
-            return () => window.removeEventListener("resize", handleWindowResize)
-        }, [width])
-
-        useEffect( () => {
-            const handleResize = () => {
-                if (breakpoint < width) {
-                    setTitleSize(10)
-                } else if (breakpoint > width)
-                    setTitleSize(1)
-            }
-            window.addEventListener("resize", handleResize)
-            console.log("titleSize", titleSize)
-            return () => window.removeEventListener("resize", handleResize)
-        }, [width])
 
         const config = useMemo(
             () => ({
@@ -49,7 +29,7 @@ export const TitleText = () => {
                 bevelOffset: 0,
                 bevelSegments: 5
             }),
-            [font, width]
+            [font, titleSize]
         );
         const mesh = useRef();
 
@@ -83,7 +63,7 @@ export const TitleText = () => {
                 >
                     <FontConfig
                         text="Codys Portfolio"
-                        position={[-7, 0, -10]}
+                        position={[-10, 0, -10]}
                         // rotation={[0, -1, 0]}
                     />
                 </group>
