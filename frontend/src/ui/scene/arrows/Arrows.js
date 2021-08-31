@@ -15,9 +15,9 @@ export const ReferenceCenter = () => {
                 onClick={({camera}) => camera.lookAt(30, 0, 0)}
             >
                 <Box
-                    position={[0, 0, 0]}
+                    position={[0, -1, -29]}
                     // rotation={[0, -1, 0]}
-                    visible={false}
+                    visible={true}
 
                 />
             </group>

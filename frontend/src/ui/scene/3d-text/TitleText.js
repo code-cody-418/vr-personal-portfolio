@@ -5,7 +5,7 @@ import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 
 
-export const TitleText = () => {
+export const TitleText = ({handleShow, handleClose }) => {
 
 
     const FontConfig = ({text, position}) => {
@@ -14,14 +14,13 @@ export const TitleText = () => {
 
         //sets the size of the 3d text based on mobile or desktop
 
-        const { titleSize, titlePosition } = useResponsive3d()
+        const { titleSize } = useResponsive3d()
 
 
         const config = useMemo(
             () => ({
                 font: font,
-                // size: titleSize,
-                size: 5,
+                size: titleSize,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -58,15 +57,14 @@ export const TitleText = () => {
 
     const PortfolioText = () => {
 
-        const { titleSize, titlePosition } = useResponsive3d()
+        const { titlePosition } = useResponsive3d()
 
         return (
             <>
                 <group
-                    // onClick={handleShow}
-                    onClick={({camera}) => camera.lookAt(30, 0, 0)}
-                    // position={[titlePosition, 0, 0]}
-                    position={[-15, -1, -30]}
+                    onClick={handleShow}
+                    position={[titlePosition, -1, -30]}
+
                 >
                     <FontConfig
                         text="Codys Portfolio"

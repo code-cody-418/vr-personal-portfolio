@@ -71,7 +71,7 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                 <Suspense fallback={null}>
                     <Environment files={backgroundHDR} background={true}/>
                     <group>
-                        <TitleText/>
+                        <TitleText handleShow={handleShow} handleClose={handleClose}/>
 
                         <ProjectsTitleText/>
                         <ProjectsListText />

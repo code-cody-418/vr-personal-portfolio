@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 
-// A responsive hook that returns 3d object sizes as numbers
+// A responsive hook that returns 3d object sizes as numbers and returns a position as a number
 export const useResponsive3d = () => {
 
-    const [width, setWidth] = useState(window.innerWidth)
+    const [width, setWidth] = useState(0)
     const [titleSize, setTitleSize] = useState(0)
     const [titlePosition, setTitlePosition] = useState(0)
     const breakpoint = 620
@@ -17,9 +17,9 @@ export const useResponsive3d = () => {
     useEffect( () => {
         const handleResize = () => {
             if (breakpoint < width) {
-                return setTitleSize(4), setTitlePosition(0)
+                return setTitleSize(5), setTitlePosition(-15)
             } else if (breakpoint > width)
-                return setTitleSize(1), setTitlePosition(0)
+                return setTitleSize(3), setTitlePosition(-9)
         }
         handleResize()
         return () => handleResize
