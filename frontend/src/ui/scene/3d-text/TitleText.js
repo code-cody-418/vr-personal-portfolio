@@ -20,7 +20,8 @@ export const TitleText = () => {
         const config = useMemo(
             () => ({
                 font: font,
-                size: titleSize,
+                // size: titleSize,
+                size: 5,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -64,7 +65,8 @@ export const TitleText = () => {
                 <group
                     // onClick={handleShow}
                     onClick={({camera}) => camera.lookAt(30, 0, 0)}
-                    position={[titlePosition, 0, 0]}
+                    // position={[titlePosition, 0, 0]}
+                    position={[-15, -1, -30]}
                 >
                     <FontConfig
                         text="Codys Portfolio"
@@ -76,7 +78,7 @@ export const TitleText = () => {
                     // onClick={handleShow}
 
                     onClick={({camera}) => camera.lookAt(0, 0, 0)}
-                    position={[0, 0, 10]}
+                    position={[0, -1, 30]}
                 >
                     <FontConfig
                         text="Back"
@@ -86,7 +88,6 @@ export const TitleText = () => {
             </>
         )
     }
-
     return (
         <>
             <PortfolioText />

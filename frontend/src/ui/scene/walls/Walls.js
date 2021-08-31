@@ -16,7 +16,7 @@ export const Walls = () => {
             >
                 <planeBufferGeometry attach='geometry' args={[60, 60]}/>
                 {/*<shadowMaterial attach='material' opacity={0.3} />*/}
-                <meshStandardMaterial attach='material' color={wallColor} />
+                <meshStandardMaterial attach='material' color={"#554b4b"} />
             </mesh>
 
             {/*projects wall*/}
@@ -41,7 +41,7 @@ export const Walls = () => {
                 <meshStandardMaterial attach='material' color={wallColor} />
             </mesh>
 
-            {/*Front Wall*/}
+            {/*Title Wall*/}
             <mesh
                 rotation={[Math.PI, Math.PI, 1.57]}
                 position={[0, -1, -30]}

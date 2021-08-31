@@ -17,7 +17,7 @@ export const useResponsive3d = () => {
     useEffect( () => {
         const handleResize = () => {
             if (breakpoint < width) {
-                return setTitleSize(4), setTitlePosition(-4)
+                return setTitleSize(4), setTitlePosition(0)
             } else if (breakpoint > width)
                 return setTitleSize(1), setTitlePosition(0)
         }

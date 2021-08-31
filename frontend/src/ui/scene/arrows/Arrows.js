@@ -17,6 +17,7 @@ export const ReferenceCenter = () => {
                 <Box
                     position={[0, 0, 0]}
                     // rotation={[0, -1, 0]}
+                    visible={false}
 
                 />
             </group>

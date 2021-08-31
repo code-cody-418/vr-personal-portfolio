@@ -38,13 +38,13 @@ export const SkillsListText = () => {
         return (
             <>
                 <Blender
-                    position={[10, -2, 3]}
-                    rotation={[0, -1, 0]}
+                    position={[29, 0, 0]}
+                    rotation={[0, -1.570796, 0]}
                 />
                 <FontConfig
                     text="React"
-                    position={[10, 1, 3]}
-                    rotation={[0, -1, 0]}
+                    position={[30, 4, 0]}
+                    rotation={[0, -1.570796, 0]}
                 />
             </>
         )

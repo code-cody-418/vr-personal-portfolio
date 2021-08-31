@@ -42,12 +42,12 @@ export const ProjectsListText = () => {
             <>
                 <FontConfig
                     text="Exp Ninja"
-                    position={[-15, 1, 5]}
-                    rotation={[0, 1, 0]}
+                    position={[-30, 4, 0]}
+                    rotation={[0, 1.570796, 0]}
                 />
                 <Kakashi
-                    position={[-10, 0, 0]}
-                    rotation={[0, 1, 0]}
+                    position={[-29, 4, -6]}
+                    rotation={[0, 1.570796, 0]}
                 />
             </>
         )

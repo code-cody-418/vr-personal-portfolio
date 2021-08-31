@@ -48,7 +48,7 @@ export const SkillsTitleText = () => {
                         onHover={() => console.log("Hovered")}>
                         <FontConfig
                             text="Tech Skills"
-                            position={[10, 3, 0]}
+                            position={[30, 6, 0]}
                             rotation={[0, -1.570796, 0]}
                             color={color}
                         />
