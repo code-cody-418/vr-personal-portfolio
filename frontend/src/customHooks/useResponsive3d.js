@@ -5,6 +5,7 @@ export const useResponsive3d = () => {
 
     const [width, setWidth] = useState(window.innerWidth)
     const [titleSize, setTitleSize] = useState(0)
+    const [titlePosition, setTitlePosition] = useState(0)
     const breakpoint = 620
 
     useEffect( () => {
@@ -16,13 +17,13 @@ export const useResponsive3d = () => {
     useEffect( () => {
         const handleResize = () => {
             if (breakpoint < width) {
-                return setTitleSize(4)
+                return setTitleSize(4), setTitlePosition(-4)
             } else if (breakpoint > width)
-                return setTitleSize(1)
+                return setTitleSize(1), setTitlePosition(0)
         }
         handleResize()
         return () => handleResize
     }, [width, titleSize])
 
-    return { width, titleSize }
+    return { width, titleSize, titlePosition }
 }

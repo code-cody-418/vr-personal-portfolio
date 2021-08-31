@@ -13,7 +13,7 @@ export const SkillsListText = () => {
                 size: 1,
                 height: 0.2,
                 curveSegments: 32,
-                bevelEnabled: true,
+                bevelEnabled: false,
                 bevelThickness: 0.03,
                 bevelSize: 0.02,
                 bevelOffset: 0,

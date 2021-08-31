@@ -49,7 +49,7 @@ export const SkillsTitleText = () => {
                         <FontConfig
                             text="Tech Skills"
                             position={[10, 3, 0]}
-                            rotation={[0, -2, 0]}
+                            rotation={[0, -1.570796, 0]}
                             color={color}
                         />
                     </Interactive>

@@ -13,7 +13,8 @@ import {ProjectsTitleText} from "./3d-text/ProjectsTitleText";
 import {ProjectsListText} from "./3d-text/ProjectsListText";
 import {SkillsListText} from "./3d-text/SkillsListText";
 import {InfoModal} from "./InfoModal";
-import {RightArrow} from "./arrows/Arrows";
+import {ReferenceCenter, RightArrow} from "./arrows/Arrows";
+import {Walls} from "./walls/Walls";
 
 
 export const ThreeDScene = ({show, handleClose, handleShow}) => {
@@ -56,21 +57,21 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                 />
                 <DefaultXRControllers/>
                 <Hands/>
-                {/*<ambientLight intensity={1}/>*/}
-                <directionalLight
-                    castShadow
-                    position={[0, 15, 25]}
-                    intensity={1}
-                    shadow-mapSize-width={1024}
-                    shadow-mapSize-height={1024}
-                    shadow-camera-far={100}
-                    shadow-camera-left={-50}
-                    shadow-camera-right={50}
-                    shadow-camera-top={50}
-                    shadow-camera-bottom={-50}
-                />
-                <pointLight position={[-10, 0, -20]} intensity={0.5}/>
-                <pointLight position={[0, 0, 0]} intensity={1.5}/>
+                <ambientLight intensity={1}/>
+                {/*<directionalLight*/}
+                {/*    castShadow*/}
+                {/*    position={[0, 15, 25]}*/}
+                {/*    intensity={1}*/}
+                {/*    shadow-mapSize-width={1024}*/}
+                {/*    shadow-mapSize-height={1024}*/}
+                {/*    shadow-camera-far={100}*/}
+                {/*    shadow-camera-left={-50}*/}
+                {/*    shadow-camera-right={50}*/}
+                {/*    shadow-camera-top={50}*/}
+                {/*    shadow-camera-bottom={-50}*/}
+                {/*/>*/}
+                {/*<pointLight position={[-10, 0, -20]} intensity={0.5}/>*/}
+                {/*<pointLight position={[0, 0, 0]} intensity={1.5}/>*/}
                 <Suspense fallback={null}>
                     <Environment files={backgroundHDR} background={true}/>
                     <group>
@@ -82,42 +83,12 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                         <SkillsTitleText />
                         <SkillsListText />
 
+                        <ReferenceCenter />
                         <RightArrow />
 
                         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade/>
 
-                        {/*floor*/}
-                        <mesh
-                            rotation={[-Math.PI / 2, 0, 0]}
-                            position={[0, -1, 0]}
-                            // receiveShadow
-                        >
-                            <planeBufferGeometry attach='geometry' args={[20, 90]}/>
-                            {/*<shadowMaterial attach='material' opacity={0.3} />*/}
-                            <meshStandardMaterial attach='material' color={"#add4e3"} />
-                        </mesh>
-
-                        {/*projects wall*/}
-                        <mesh
-                            rotation={[-Math.PI / 2, 1.57, 0]}
-                            position={[-30, 3, 5]}
-                            // receiveShadow
-                        >
-                            <planeBufferGeometry attach='geometry' args={[20, 90]}/>
-                            {/*<shadowMaterial attach='material' opacity={0.3} />*/}
-                            <meshStandardMaterial attach='material' color={"#add4e3"} />
-                        </mesh>
-
-                        {/*skills wall*/}
-                        <mesh
-                            rotation={[-Math.PI / 2, -1.57, 0]}
-                            position={[30, 8, 0]}
-                            // receiveShadow
-                        >
-                            <planeBufferGeometry attach='geometry' args={[20, 90]}/>
-                            {/*<shadowMaterial attach='material' opacity={0.3} />*/}
-                            <meshStandardMaterial attach='material' color={"#8f9bee"} />
-                        </mesh>
+                        <Walls />
 
                     </group>
                 </Suspense>

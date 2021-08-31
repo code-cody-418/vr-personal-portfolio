@@ -14,7 +14,7 @@ export const TitleText = () => {
 
         //sets the size of the 3d text based on mobile or desktop
 
-        const { titleSize } = useResponsive3d()
+        const { titleSize, titlePosition } = useResponsive3d()
 
 
         const config = useMemo(
@@ -41,12 +41,13 @@ export const TitleText = () => {
         return (
             <>
                 <group
-                    position={position}
+                    // position={position}
                     onPointerOver={() => setHovered(true)}
                     onPointerOut={() => setHovered(false)}
+                    // scale={0.01}
                 >
                     <mesh ref={mesh} >
-                        <textGeometry args={[text, config]} />
+                        <textGeometry center args={[text, config]} />
                         <meshNormalMaterial />
                     </mesh>
                 </group>
@@ -55,25 +56,31 @@ export const TitleText = () => {
     }
 
     const PortfolioText = () => {
+
+        const { titleSize, titlePosition } = useResponsive3d()
+
         return (
             <>
                 <group
                     // onClick={handleShow}
                     onClick={({camera}) => camera.lookAt(30, 0, 0)}
+                    position={[titlePosition, 0, 0]}
                 >
                     <FontConfig
                         text="Codys Portfolio"
-                        position={[-10, 0, -10]}
+
                         // rotation={[0, -1, 0]}
                     />
                 </group>
                 <group
                     // onClick={handleShow}
+
                     onClick={({camera}) => camera.lookAt(0, 0, 0)}
+                    position={[0, 0, 10]}
                 >
                     <FontConfig
                         text="Back"
-                        position={[0, 0, 10]}
+
                     />
                 </group>
             </>
