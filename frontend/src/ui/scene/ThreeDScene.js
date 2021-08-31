@@ -1,12 +1,8 @@
-import React, {Suspense, useEffect, useState} from "react";
-import * as THREE from "three"
-import {Canvas, useFrame} from "@react-three/fiber";
-import {Environment, PerspectiveCamera, Stars, TransformControls} from "@react-three/drei";
-import Kakashi from "./Kakashi";
+import React, {Suspense} from "react";
+import {Environment, Stars} from "@react-three/drei";
 import backgroundHDR from "./black-hdri.HDR"
-import {VRCanvas, DefaultXRControllers, Hands, useXR, useController, XRController, Interactive} from "@react-three/xr";
+import {VRCanvas, DefaultXRControllers, Hands} from "@react-three/xr";
 import {OrbitControls} from "@react-three/drei";
-import Blender from "./Blender";
 import {TitleText} from "./3d-text/TitleText";
 import {SkillsTitleText} from "./3d-text/SkillsTitleText";
 import {ProjectsTitleText} from "./3d-text/ProjectsTitleText";
