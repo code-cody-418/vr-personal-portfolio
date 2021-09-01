@@ -6,11 +6,11 @@ import Kakashi from "../Kakashi";
 
 export const ProjectsListText = () => {
     const FontConfig = ({text, position, rotation}) => {
-        const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
+        const font = useLoader(THREE.FontLoader, "/Roboto-Slab-Bold.json");
         const config = useMemo(
             () => ({
                 font: font,
-                size: 1,
+                size: 1.5,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -27,7 +27,7 @@ export const ProjectsListText = () => {
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
                         <textGeometry args={[text, config]}/>
-                        <meshStandardMaterial color={"#FFFFFF"}/>
+                        <meshStandardMaterial color={"#8f6bd9"}/>
                     </mesh>
                 </group>
             </>
@@ -38,11 +38,11 @@ export const ProjectsListText = () => {
             <>
                 <FontConfig
                     text="Exp Ninja"
-                    position={[-20, 4, 0]}
+                    position={[-20, 4, 10]}
                     rotation={[0, 1.570796, 0]}
                 />
                 <Kakashi
-                    position={[-19, 4, -6]}
+                    position={[-19, 4, -2]}
                     rotation={[0, 1.570796, 0]}
                 />
             </>
