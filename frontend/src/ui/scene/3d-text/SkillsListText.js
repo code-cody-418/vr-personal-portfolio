@@ -47,7 +47,7 @@ export const SkillsListText = () => {
                 {/*/>*/}
                 <group
                     //this group moves the whole list
-                    position={[0, 0, -5]} >
+                    position={[0, 0, -15]} >
                     <FontConfig
                         text="React"
                         position={[20, 4, 0]} //separate each new item in list by y-2
@@ -59,8 +59,23 @@ export const SkillsListText = () => {
                         rotation={[0, -1.570796, 0]}
                     />
                     <FontConfig
-                        text="React Three Fiber VR"
+                        text="Redux"
                         position={[20, 0, 0]}
+                        rotation={[0, -1.570796, 0]}
+                    />
+                    <FontConfig
+                        text="Docker"
+                        position={[20, -2, 0]}
+                        rotation={[0, -1.570796, 0]}
+                    />
+                    <FontConfig
+                        text="Bootstrap"
+                        position={[20, -4, 0]}
+                        rotation={[0, -1.570796, 0]}
+                    />
+                    <FontConfig
+                        text="GitHub"
+                        position={[20, -6, 0]}
                         rotation={[0, -1.570796, 0]}
                     />
                 </group>

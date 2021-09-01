@@ -12,10 +12,12 @@ export const TitleText = ({handleShow, handleClose }) => {
         //sets the size of the 3d text based on mobile or desktop using a custom hook
         const { titleSize } = useResponsive3d()
 
+        console.log("titleSize", titleSize)
+
         const config = useMemo(
             () => ({
                 font: font,
-                size: 5,
+                size: titleSize,
                 height: 0.4,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -43,7 +45,9 @@ export const TitleText = ({handleShow, handleClose }) => {
 
     const PortfolioText = () => {
 
-        const { titlePosition } = useResponsive3d()
+        const { titleXPosition, titleYPosition } = useResponsive3d()
+
+        console.log("titlePostion", titleXPosition)
 
         //hover cursor change
         const [hovered, setHovered] = useState(false)
@@ -55,7 +59,7 @@ export const TitleText = ({handleShow, handleClose }) => {
                     onClick={handleShow}
                     onPointerOver={() => setHovered(true)}
                     onPointerOut={() => setHovered(false)}
-                    position={[-9, 6, -15]}
+                    position={[titleXPosition, titleYPosition, -15]}
                 >
                     <FontConfig
                         text="Codys"
@@ -65,7 +69,7 @@ export const TitleText = ({handleShow, handleClose }) => {
                     onClick={handleShow}
                     onPointerOver={() => setHovered(true)}
                     onPointerOut={() => setHovered(false)}
-                    position={[-9, 0, -15]}
+                    position={[titleXPosition, 0, -15]}
                 >
                     <FontConfig
                         text="Portfolio"

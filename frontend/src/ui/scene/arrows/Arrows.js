@@ -49,7 +49,7 @@ export const ReferenceSkills = () => {
             <group
             >
                 <Box
-                    position={[20, 0, 0]}
+                    position={[20, -12, 0]}
                     visible={visible}
                 />
             </group>

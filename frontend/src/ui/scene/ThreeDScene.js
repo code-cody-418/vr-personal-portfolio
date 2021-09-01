@@ -54,8 +54,6 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                 />
 
 
-
-
                 <DefaultXRControllers/>
                 <Hands/>
                 <ambientLight intensity={1}/>
@@ -79,19 +77,24 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                         <TitleText handleShow={handleShow} handleClose={handleClose}/>
 
                         <ProjectsTitleText/>
-                        <ProjectsListText />
+                        <ProjectsListText/>
 
-                        <SkillsTitleText />
-                        <SkillsListText />
+                        <group
+                            position={[0, 0, 0]}
+                            rotation={[0, 0, 0]}
+                        >
+                            <SkillsTitleText/>
+                            <SkillsListText/>
+                        </group>
 
-                        <ReferenceCenter />
-                        <ReferenceProject />
-                        <ReferenceSkills />
-                        <RightArrow />
+                        <ReferenceCenter/>
+                        <ReferenceProject/>
+                        <ReferenceSkills/>
+                        <RightArrow/>
 
                         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade/>
 
-                        <Walls />
+                        <Walls/>
 
                     </group>
                 </Suspense>
