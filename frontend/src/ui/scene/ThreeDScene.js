@@ -1,5 +1,5 @@
 import React, {Suspense} from "react";
-import {Environment, Stars} from "@react-three/drei";
+import {Environment, OrthographicCamera, PerspectiveCamera, Stars} from "@react-three/drei";
 import backgroundHDR from "./black-hdri.HDR"
 import {VRCanvas, DefaultXRControllers, Hands} from "@react-three/xr";
 import {OrbitControls} from "@react-three/drei";
@@ -9,9 +9,8 @@ import {ProjectsTitleText} from "./3d-text/ProjectsTitleText";
 import {ProjectsListText} from "./3d-text/ProjectsListText";
 import {SkillsListText} from "./3d-text/SkillsListText";
 import {InfoModal} from "./InfoModal";
-import {ReferenceCenter, RightArrow} from "./arrows/Arrows";
+import {ReferenceCenter, ReferenceProject, ReferenceSkills, RightArrow} from "./arrows/Arrows";
 import {Walls} from "./walls/Walls";
-
 
 export const ThreeDScene = ({show, handleClose, handleShow}) => {
     return (
@@ -22,6 +21,7 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                 // camera={{position: [0, 0, 0], fov: 55}}
                 // resize={0.5}
                 // onCreated={({camera}) => camera.lookAt(0, 0, -35)}
+                // orthographic={true}
 
             >
 
@@ -43,14 +43,19 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                     minAzimuthAngle={-1.57}
                     maxAzimuthAngle={1.57}
 
+
                     // // extras
                     // // minZoom={0}
                     // // maxZoom={5}
                     //
-                    // //vertical angle limit
+                    // // vertical angle limit
                     // // minPolarAngle={0}
                     // // maxPolarAngle={1.5}
                 />
+
+
+
+
                 <DefaultXRControllers/>
                 <Hands/>
                 <ambientLight intensity={1}/>
@@ -80,6 +85,8 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                         <SkillsListText />
 
                         <ReferenceCenter />
+                        <ReferenceProject />
+                        <ReferenceSkills />
                         <RightArrow />
 
                         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade/>

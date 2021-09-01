@@ -13,7 +13,7 @@ export const SkillsTitleText = () => {
         const config = useMemo(
             () => ({
                 font: font,
-                size: 2,
+                size: 5,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -49,7 +49,7 @@ export const SkillsTitleText = () => {
                     >
                         <FontConfig
                             text="Tech Skills"
-                            position={[30, 6, 0]}
+                            position={[20, 7, -15]}
                             rotation={[0, -1.570796, 0]}
                             color={color}
                         />

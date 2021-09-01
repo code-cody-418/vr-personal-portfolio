@@ -4,7 +4,6 @@ import {useLoader} from "@react-three/fiber";
 import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 
-
 export const TitleText = ({handleShow, handleClose }) => {
 
     const FontConfig = ({text}) => {
@@ -16,8 +15,8 @@ export const TitleText = ({handleShow, handleClose }) => {
         const config = useMemo(
             () => ({
                 font: font,
-                size: titleSize,
-                height: 0.2,
+                size: 5,
+                height: 0.4,
                 curveSegments: 32,
                 bevelEnabled: true,
                 bevelThickness: 0.03,
@@ -28,8 +27,6 @@ export const TitleText = ({handleShow, handleClose }) => {
             [font, titleSize]
         );
         const mesh = useRef();
-
-
 
         return (
             <>
@@ -58,10 +55,20 @@ export const TitleText = ({handleShow, handleClose }) => {
                     onClick={handleShow}
                     onPointerOver={() => setHovered(true)}
                     onPointerOut={() => setHovered(false)}
-                    position={[titlePosition, -1, -30]}
+                    position={[-9, 6, -15]}
                 >
                     <FontConfig
-                        text="Codys Portfolio"
+                        text="Codys"
+                    />
+                </group>
+                <group
+                    onClick={handleShow}
+                    onPointerOver={() => setHovered(true)}
+                    onPointerOut={() => setHovered(false)}
+                    position={[-9, 0, -15]}
+                >
+                    <FontConfig
+                        text="Portfolio"
                     />
                 </group>
             </>

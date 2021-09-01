@@ -9,7 +9,7 @@ export const ProjectsTitleText = () => {
         const config = useMemo(
             () => ({
                 font: font,
-                size: 2,
+                size: 5,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -26,7 +26,7 @@ export const ProjectsTitleText = () => {
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
                         <textGeometry args={[text, config]}/>
-                        <meshNormalMaterial/>
+                        <meshStandardMaterial color={"#ff0000"}/>
                     </mesh>
                 </group>
             </>
@@ -40,7 +40,7 @@ export const ProjectsTitleText = () => {
                 >
                     <FontConfig
                         text="Projects"
-                        position={[-30, 6, 0]}
+                        position={[-20, 7, 10]}
                         rotation={[0, 1.570796, 0]}
                     />
                 </group>

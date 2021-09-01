@@ -1,11 +1,16 @@
 import React, {useEffect, useState} from "react";
 import {Box} from "@react-three/drei";
 
+// Turns on and off Reference Boxs to help position
+const visible = true
+
 export const ReferenceCenter = () => {
 
     const [hovered, setHovered] = useState(false)
 
     useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
+
+
 
     return (
         <>
@@ -15,9 +20,37 @@ export const ReferenceCenter = () => {
                 // onClick={({camera}) => camera.lookAt(30, 0, 0)}
             >
                 <Box
-                    position={[0, -1, -29]}
+                    position={[0, -1, -14]}
                     // rotation={[0, -1, 0]}
-                    visible={true}
+                    visible={visible}
+                />
+            </group>
+        </>
+    )
+}
+
+export const ReferenceProject = () => {
+    return (
+        <>
+            <group
+            >
+                <Box
+                    position={[-19, 0, 0]}
+                    visible={visible}
+                />
+            </group>
+        </>
+    )
+}
+
+export const ReferenceSkills = () => {
+    return (
+        <>
+            <group
+            >
+                <Box
+                    position={[20, 0, 0]}
+                    visible={visible}
                 />
             </group>
         </>
