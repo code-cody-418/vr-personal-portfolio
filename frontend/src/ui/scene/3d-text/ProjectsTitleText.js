@@ -26,7 +26,7 @@ export const ProjectsTitleText = () => {
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
                         <textGeometry args={[text, config]}/>
-                        <meshStandardMaterial color={"#ff0000"}/>
+                        <meshBasicMaterial color={"#ff0000"}/>
                     </mesh>
                 </group>
             </>

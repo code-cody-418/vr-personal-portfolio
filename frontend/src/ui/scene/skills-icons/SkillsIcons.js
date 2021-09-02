@@ -7,6 +7,7 @@ export const SkillsIcons = () => {
     const reduxIcon = useTexture("/redux-icon.png")
 
 
+
     return (
         <>
             <group
@@ -15,10 +16,8 @@ export const SkillsIcons = () => {
                 scale={10}
             >
                 <mesh>
-                    {/*<boxGeometry  />*/}
                     <planeGeometry/>
                     <meshStandardMaterial
-                        // matcap={matcap1}
                         transparent={true}
                         map={reduxIcon}
                     />

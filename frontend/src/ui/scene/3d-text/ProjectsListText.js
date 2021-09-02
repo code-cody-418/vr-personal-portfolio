@@ -27,7 +27,7 @@ export const ProjectsListText = () => {
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
                         <textGeometry args={[text, config]}/>
-                        <meshStandardMaterial color={"#8f6bd9"}/>
+                        <meshBasicMaterial color={"#8f6bd9"}/>
                     </mesh>
                 </group>
             </>
@@ -48,7 +48,7 @@ export const ProjectsListText = () => {
                     </group>
                     <Kakashi
                         position={[-19, -8, 18]}
-                        rotation={[0, 1.570796, 0]}
+                        rotation={[0, 2.3, 0]}
                     />
 
                     <FontConfig

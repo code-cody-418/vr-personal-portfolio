@@ -30,7 +30,7 @@ export const SkillsTitleText = () => {
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
                         <textGeometry args={[text, config]}/>
-                        <meshStandardMaterial color={color}/>
+                        <meshBasicMaterial color={color}/>
                     </mesh>
                 </group>
             </>
