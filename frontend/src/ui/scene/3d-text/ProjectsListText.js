@@ -10,7 +10,7 @@ export const ProjectsListText = () => {
         const config = useMemo(
             () => ({
                 font: font,
-                size: 1.5,
+                size: 2.5,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -36,21 +36,38 @@ export const ProjectsListText = () => {
     const ListText = () => {
         return (
             <>
-                <FontConfig
-                    text="Exp Ninja"
-                    position={[-20, 4, 10]}
-                    rotation={[0, 1.570796, 0]}
-                />
-                <Kakashi
-                    position={[-19, 4, -2]}
-                    rotation={[0, 1.570796, 0]}
-                />
+                <group
+                    position={[0, 0, 0]}
+                >
+                    <group onClick={() => window.open("https://expninja.com/")}>
+                        <FontConfig
+                            text="Exp Ninja"
+                            position={[-20, 2, 10]}
+                            rotation={[0, 1.570796, 0]}
+                        />
+                    </group>
+                    <Kakashi
+                        position={[-19, -8, 18]}
+                        rotation={[0, 1.570796, 0]}
+                    />
+
+                    <FontConfig
+                        text="AlienGram"
+                        position={[-20, -2, 10]}
+                        rotation={[0, 1.570796, 0]}
+                    />
+                    <FontConfig
+                        text="Saiyan Web Dev"
+                        position={[-20, -6, 10]}
+                        rotation={[0, 1.570796, 0]}
+                    />
+                </group>
             </>
         )
     }
     return (
         <>
-            <ListText />
+            <ListText/>
         </>
     )
 }
