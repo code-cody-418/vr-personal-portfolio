@@ -11,6 +11,7 @@ import {SkillsListText} from "./3d-text/SkillsListText";
 import {InfoModal} from "./InfoModal";
 import {ReferenceCenter, ReferenceProject, ReferenceSkills, RightArrow} from "./arrows/Arrows";
 import {Walls} from "./walls/Walls";
+import {SkillsIcons} from "./skills-icons/SkillsIcons";
 
 export const ThreeDScene = ({show, handleClose, handleShow}) => {
     return (
@@ -26,7 +27,7 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
             >
 
                 <OrbitControls
-                    enablePan={false}
+                    enablePan={true}
                     enableZoom={true}
 
                     // distance of camera creation
@@ -75,6 +76,12 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                     <Environment files={backgroundHDR} background={true}/>
                     <group>
                         <TitleText handleShow={handleShow} handleClose={handleClose}/>
+
+                        <group>
+                            <SkillsIcons
+                                position={[0, 0, -10]}
+                            />
+                        </group>
 
                         <ProjectsTitleText/>
                         <ProjectsListText/>
