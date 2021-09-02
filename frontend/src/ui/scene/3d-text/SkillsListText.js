@@ -3,6 +3,7 @@ import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 import Blender from "../Blender";
 import {SkillsIcons} from "../skills-icons/SkillsIcons";
+import {Interactive} from "@react-three/xr";
 
 //
 // /Basaro_Regular.json
@@ -77,30 +78,32 @@ export const SkillsListText = () => {
         }, [thirtySeconds, timerOnOff])
 
         useEffect(() => {
-            if (thirtySeconds > 25) {
-                setIconState("reactActive")
-                setReactColor("#61dafb")
-                setGithubColor(startingColor)
-            } else if (thirtySeconds > 20) {
-                setIconState("expressActive")
-                setExpressColor("#FFFFFF")
-                setReactColor(startingColor)
-            } else if (thirtySeconds > 15) {
-                setIconState("reduxActive")
-                setReduxColor("#764abc")
-                setExpressColor(startingColor)
-            } else if (thirtySeconds > 10) {
-                setIconState("dockerActive")
-                setDockerColor("#2496ed")
-                setReduxColor(startingColor)
-            } else if (thirtySeconds > 5) {
-                setIconState("bootstrapActive")
-                setBootstrapColor("#7952b3")
-                setDockerColor(startingColor)
-            } else if (thirtySeconds > 0) {
-                setIconState("githubActive")
-                setGithubColor("#FFF")
-                setBootstrapColor(startingColor)
+            if (timerOnOff === true) {
+                if (thirtySeconds > 25) {
+                    setIconState("reactActive")
+                    setReactColor("#61dafb")
+                    setGithubColor(startingColor)
+                } else if (thirtySeconds > 20) {
+                    setIconState("expressActive")
+                    setExpressColor("#FFFFFF")
+                    setReactColor(startingColor)
+                } else if (thirtySeconds > 15) {
+                    setIconState("reduxActive")
+                    setReduxColor("#764abc")
+                    setExpressColor(startingColor)
+                } else if (thirtySeconds > 10) {
+                    setIconState("dockerActive")
+                    setDockerColor("#2496ed")
+                    setReduxColor(startingColor)
+                } else if (thirtySeconds > 5) {
+                    setIconState("bootstrapActive")
+                    setBootstrapColor("#7952b3")
+                    setDockerColor(startingColor)
+                } else if (thirtySeconds > 0) {
+                    setIconState("githubActive")
+                    setGithubColor("#FFF")
+                    setBootstrapColor(startingColor)
+                }
             }
         }, [iconState, thirtySeconds])
 
@@ -124,47 +127,88 @@ export const SkillsListText = () => {
                             setTimerOnOff(true)
                         }}
                     >
-                        <FontConfig
-                            text="React"
-                            position={[20, 4, 0]} //separate each new item in list by y-2
-                            rotation={[0, -1.570796, 0]}
-                            uniqueColor={reactColor}
-                        />
+                        <Interactive
+                            // onSelect={() => setColor("#0000ff")}
+                            onHover={() => {
+                                setIconState("reactActive")
+                                setReactColor("#61dafb")
+                                setTimerOnOff(false)
+                            }}
+                        >
+                            <FontConfig
+                                text="React"
+                                position={[20, 4, 0]} //separate each new item in list by y-2
+                                rotation={[0, -1.570796, 0]}
+                                uniqueColor={reactColor}
+                            />
+                        </Interactive>
                     </group>
                     <group
                         onPointerEnter={() => {
                             setIconState("expressActive")
                             setExpressColor("#FFFFFF")
+                            setTimerOnOff(false)
                         }}
-                        onPointerLeave={() => setExpressColor(startingColor)}
+                        onPointerLeave={() => {
+                            setExpressColor(startingColor)
+                            setTimerOnOff(true)
+                        }}
                     >
-                        <FontConfig
-                            text="Express"
-                            position={[20, 2, 0]}
-                            rotation={[0, -1.570796, 0]}
-                            uniqueColor={expressColor}
-                        />
+                        <Interactive
+                            onSelect={() => {
+                                setIconState("expressActive")
+                                setExpressColor("#FFFFFF")
+                                setTimerOnOff(false)
+                            }}
+                        >
+                            <FontConfig
+                                text="Express"
+                                position={[20, 2, 0]}
+                                rotation={[0, -1.570796, 0]}
+                                uniqueColor={expressColor}
+                            />
+                        </Interactive>
                     </group>
                     <group
                         onPointerEnter={() => {
                             setIconState("reduxActive")
                             setReduxColor("#764abc")
+                            setTimerOnOff(false)
                         }}
-                        onPointerLeave={() => setReduxColor(startingColor)}
+                        onPointerLeave={() => {
+                            setReduxColor(startingColor)
+                            setTimerOnOff(true)
+                        }}
                     >
-                        <FontConfig
-                            text="Redux"
-                            position={[20, 0, 0]}
-                            rotation={[0, -1.570796, 0]}
-                            uniqueColor={reduxColor}
-                        />
+                        <Interactive
+                            onSqueezeStart={() => {
+                                setIconState("reduxActive")
+                                setReduxColor("#764abc")
+                                setTimerOnOff(false)
+                            }}
+                            onSqueezeEnd={() => {
+                                setReduxColor(startingColor)
+                                setTimerOnOff(true)
+                            }}
+                        >
+                            <FontConfig
+                                text="Redux"
+                                position={[20, 0, 0]}
+                                rotation={[0, -1.570796, 0]}
+                                uniqueColor={reduxColor}
+                            />
+                        </Interactive>
                     </group>
                     <group
                         onPointerEnter={() => {
                             setIconState("dockerActive")
                             setDockerColor("#2496ed")
+                            setTimerOnOff(false)
                         }}
-                        onPointerLeave={() => setDockerColor(startingColor)}
+                        onPointerLeave={() => {
+                            setDockerColor(startingColor)
+                            setTimerOnOff(true)
+                        }}
                     >
                         <FontConfig
                             text="Docker"
@@ -177,8 +221,12 @@ export const SkillsListText = () => {
                         onPointerEnter={() => {
                             setIconState("bootstrapActive")
                             setBootstrapColor("#7952b3")
+                            setTimerOnOff(false)
                         }}
-                        onPointerLeave={() => setBootstrapColor(startingColor)}
+                        onPointerLeave={() => {
+                            setBootstrapColor(startingColor)
+                            setTimerOnOff(true)
+                        }}
                     >
                         <FontConfig
                             text="Bootstrap"
@@ -191,8 +239,12 @@ export const SkillsListText = () => {
                         onPointerEnter={() => {
                             setIconState("githubActive")
                             setGithubColor("#FFF")
+                            setTimerOnOff(false)
                         }}
-                        onPointerLeave={() => setGithubColor(startingColor)}
+                        onPointerLeave={() => {
+                            setGithubColor(startingColor)
+                            setTimerOnOff(true)
+                        }}
                     >
                         <FontConfig
                             text="GitHub"
