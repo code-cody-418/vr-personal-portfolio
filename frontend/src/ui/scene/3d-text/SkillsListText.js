@@ -51,6 +51,9 @@ export const SkillsListText = () => {
         const [reactColor, setReactColor] = useState(startingColor)
         const [expressColor, setExpressColor] = useState(startingColor)
         const [reduxColor, setReduxColor] = useState(startingColor)
+        const [dockerColor, setDockerColor] = useState(startingColor)
+        const [bootstrapColor, setBootstrapColor] = useState(startingColor)
+        const [githubColor, setGithubColor] = useState(startingColor)
 
         return (
             <>
@@ -100,24 +103,51 @@ export const SkillsListText = () => {
                             text="Redux"
                             position={[20, 0, 0]}
                             rotation={[0, -1.570796, 0]}
-                            uniqueColor= {reduxColor}
+                            uniqueColor={reduxColor}
                         />
                     </group>
-                    <FontConfig
-                        text="Docker"
-                        position={[20, -2, 0]}
-                        rotation={[0, -1.570796, 0]}
-                    />
-                    <FontConfig
-                        text="Bootstrap"
-                        position={[20, -4, 0]}
-                        rotation={[0, -1.570796, 0]}
-                    />
-                    <FontConfig
-                        text="GitHub"
-                        position={[20, -6, 0]}
-                        rotation={[0, -1.570796, 0]}
-                    />
+                    <group
+                        onPointerEnter={() => {
+                            setIconState("dockerActive")
+                            setDockerColor("#2496ed")
+                        }}
+                        onPointerLeave={() => setDockerColor(startingColor)}
+                    >
+                        <FontConfig
+                            text="Docker"
+                            position={[20, -2, 0]}
+                            rotation={[0, -1.570796, 0]}
+                            uniqueColor={dockerColor}
+                        />
+                    </group>
+                    <group
+                        onPointerEnter={() => {
+                            setIconState("bootstrapActive")
+                            setBootstrapColor("#7952b3")
+                        }}
+                        onPointerLeave={() => setBootstrapColor(startingColor)}
+                    >
+                        <FontConfig
+                            text="Bootstrap"
+                            position={[20, -4, 0]}
+                            rotation={[0, -1.570796, 0]}
+                            uniqueColor={bootstrapColor}
+                        />
+                    </group>
+                    <group
+                        onPointerEnter={() => {
+                            setIconState("githubActive")
+                            setGithubColor("#FFF")
+                        }}
+                        onPointerLeave={() => setGithubColor(startingColor)}
+                    >
+                        <FontConfig
+                            text="GitHub"
+                            position={[20, -6, 0]}
+                            rotation={[0, -1.570796, 0]}
+                            uniqueColor={githubColor}
+                        />
+                    </group>
                     <SkillsIcons
                         position={[0, 0, 0]}
                         iconState={iconState}
