@@ -9,8 +9,10 @@ export const TitleText = ({handleShow, handleClose }) => {
     const FontConfig = ({text}) => {
         const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
 
-        //sets the size of the 3d text based on mobile or desktop using a custom hook
+        // sets the size of the 3d text based on mobile or desktop using a custom hook
         const { titleSize } = useResponsive3d()
+
+        // const titleSize = 5
 
         console.log("titleSize", titleSize)
 
@@ -46,6 +48,9 @@ export const TitleText = ({handleShow, handleClose }) => {
     const PortfolioText = () => {
 
         const { titleXPosition, titleYPosition } = useResponsive3d()
+
+        // const titleXPosition = -9
+        // const titleYPosition = 6
 
         console.log("titlePostion", titleXPosition)
 

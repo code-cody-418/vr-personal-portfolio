@@ -3,6 +3,14 @@ import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 
 
+//Extra fonts
+// /Basaro_Regular.json
+
+// /Sunmore-Slant-Free-Regular.json
+// /Ranille-Normal-Regular.json
+// /Roboto-Slab-Bold.json
+// /Saiyan-Sans-Regular.json
+
 export const ProjectsTitleText = () => {
     const FontConfig = ({text, position, rotation}) => {
         const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
@@ -26,7 +34,7 @@ export const ProjectsTitleText = () => {
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
                         <textGeometry args={[text, config]}/>
-                        <meshBasicMaterial color={"#ff0000"}/>
+                        <meshBasicMaterial color={"#00b7ff"}/>
                     </mesh>
                 </group>
             </>

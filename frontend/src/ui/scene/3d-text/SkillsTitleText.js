@@ -1,4 +1,4 @@
-import React, {useMemo, useRef, useState} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 import {Interactive} from "@react-three/xr";
@@ -6,7 +6,8 @@ import {Interactive} from "@react-three/xr";
 
 export const SkillsTitleText = () => {
 
-    const [color, setColor] = useState("#ff0000")
+    const [color, setColor] = useState("#00b7ff")
+
 
     const FontConfig = ({text, position, rotation, color}) => {
         const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");

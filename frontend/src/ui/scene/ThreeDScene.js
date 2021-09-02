@@ -1,4 +1,4 @@
-import React, {Suspense} from "react";
+import React, {Suspense, useEffect, useState} from "react";
 import {Environment, OrthographicCamera, PerspectiveCamera, Stars} from "@react-three/drei";
 import backgroundHDR from "./black-hdri.HDR"
 import {VRCanvas, DefaultXRControllers, Hands} from "@react-three/xr";
@@ -14,6 +14,22 @@ import {Walls} from "./walls/Walls";
 import {SkillsIcons} from "./skills-icons/SkillsIcons";
 
 export const ThreeDScene = ({show, handleClose, handleShow}) => {
+
+    //Functionality to 30 second timer
+    // const [thirtySeconds, setThirtySeconds] = useState(30)
+    //
+    // useEffect(() => {
+    //     if (thirtySeconds === -1) {
+    //         setThirtySeconds(30)
+    //     } else if (thirtySeconds > -2) {
+    //         const intervalId = setInterval(() => {
+    //             setThirtySeconds(thirtySeconds => thirtySeconds - 1)
+    //         }, 1000)
+    //         console.log("seconds", thirtySeconds)
+    //         return () => clearInterval(intervalId)
+    //     }
+    // }, [thirtySeconds])
+
     return (
         <>
             <InfoModal show={show} handleClose={handleClose} handleShow={handleShow}/>
@@ -61,14 +77,14 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                 {/*<directionalLight*/}
                 {/*    castShadow*/}
                 {/*    position={[0, 15, 25]}*/}
-                {/*    intensity={1}*/}
-                {/*    shadow-mapSize-width={1024}*/}
-                {/*    shadow-mapSize-height={1024}*/}
-                {/*    shadow-camera-far={100}*/}
-                {/*    shadow-camera-left={-50}*/}
-                {/*    shadow-camera-right={50}*/}
-                {/*    shadow-camera-top={50}*/}
-                {/*    shadow-camera-bottom={-50}*/}
+                {/*    intensity={2}*/}
+                {/*    // shadow-mapSize-width={1024}*/}
+                {/*    // shadow-mapSize-height={1024}*/}
+                {/*    // shadow-camera-far={100}*/}
+                {/*    // shadow-camera-left={-50}*/}
+                {/*    // shadow-camera-right={50}*/}
+                {/*    // shadow-camera-top={50}*/}
+                {/*    // shadow-camera-bottom={-50}*/}
                 {/*/>*/}
                 {/*<pointLight position={[-10, 0, -20]} intensity={0.5}/>*/}
                 {/*<pointLight position={[0, 0, 0]} intensity={1.5}/>*/}
@@ -77,11 +93,12 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                     <group>
                         <TitleText handleShow={handleShow} handleClose={handleClose}/>
 
-                        <group>
-                            <SkillsIcons
-                                position={[0, 0, -10]}
-                            />
-                        </group>
+                        {/*<group>*/}
+                        {/*    <SkillsIcons*/}
+                        {/*        position={[0, 0, -10]}*/}
+                        {/*        // thirtySeconds={thirtySeconds}*/}
+                        {/*    />*/}
+                        {/*</group>*/}
 
                         <ProjectsTitleText/>
                         <ProjectsListText/>
