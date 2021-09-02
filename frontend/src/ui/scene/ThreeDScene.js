@@ -2,7 +2,7 @@ import React, {Suspense, useEffect, useState} from "react";
 import {Environment, OrthographicCamera, PerspectiveCamera, Stars} from "@react-three/drei";
 import backgroundHDR from "./black-hdri.HDR"
 import {VRCanvas, DefaultXRControllers, Hands} from "@react-three/xr";
-import {OrbitControls} from "@react-three/drei";
+import {OrbitControls, Loader} from "@react-three/drei";
 import {TitleText} from "./3d-text/TitleText";
 import {SkillsTitleText} from "./3d-text/SkillsTitleText";
 import {ProjectsTitleText} from "./3d-text/ProjectsTitleText";
@@ -14,22 +14,6 @@ import {Walls} from "./walls/Walls";
 import {SkillsIcons} from "./skills-icons/SkillsIcons";
 
 export const ThreeDScene = ({show, handleClose, handleShow}) => {
-
-    //Functionality to 30 second timer
-    // const [thirtySeconds, setThirtySeconds] = useState(30)
-    //
-    // useEffect(() => {
-    //     if (thirtySeconds === -1) {
-    //         setThirtySeconds(30)
-    //     } else if (thirtySeconds > -2) {
-    //         const intervalId = setInterval(() => {
-    //             setThirtySeconds(thirtySeconds => thirtySeconds - 1)
-    //         }, 1000)
-    //         console.log("seconds", thirtySeconds)
-    //         return () => clearInterval(intervalId)
-    //     }
-    // }, [thirtySeconds])
-
     return (
         <>
             <InfoModal show={show} handleClose={handleClose} handleShow={handleShow}/>
@@ -93,13 +77,6 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                     <group>
                         <TitleText handleShow={handleShow} handleClose={handleClose}/>
 
-                        {/*<group>*/}
-                        {/*    <SkillsIcons*/}
-                        {/*        position={[0, 0, -10]}*/}
-                        {/*        // thirtySeconds={thirtySeconds}*/}
-                        {/*    />*/}
-                        {/*</group>*/}
-
                         <ProjectsTitleText/>
                         <ProjectsListText/>
 
@@ -111,18 +88,19 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                             <SkillsListText/>
                         </group>
 
-                        <ReferenceCenter/>
-                        <ReferenceProject/>
-                        <ReferenceSkills/>
-                        <RightArrow/>
+                        {/*<ReferenceCenter/>*/}
+                        {/*<ReferenceProject/>*/}
+                        {/*<ReferenceSkills/>*/}
+                        {/*<RightArrow/>*/}
 
                         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade/>
 
-                        <Walls/>
+                        {/*<Walls/>*/}
 
                     </group>
                 </Suspense>
             </VRCanvas>
+            <Loader />
         </>
     )
 }

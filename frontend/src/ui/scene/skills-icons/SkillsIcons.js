@@ -10,9 +10,11 @@ export const SkillsIcons = ({iconState}) => {
     const bootstrapIcon = useTexture("/bootstrap-icon.png")
     const githubIcon = useTexture("/github-icon.png")
 
-    const [currentIcon, setCurrentIcon] = useState(reactIcon)
+    const [currentIcon, setCurrentIcon] = useState(null)
 
-    useEffect( () => {
+
+    //determines which icon is showing
+    useEffect(() => {
         if (iconState === "reactActive") {
             setCurrentIcon(reactIcon)
         } else if (iconState === "expressActive") {
@@ -26,14 +28,14 @@ export const SkillsIcons = ({iconState}) => {
         } else if (iconState === "githubActive") {
             setCurrentIcon(githubIcon)
         }
-        // console.log("icon state", iconState)
+        console.log("icon state", iconState)
     }, [iconState])
 
 
     return (
         <>
             <group
-                position={[ 20, 0, 20 ]}
+                position={[20, 0, 20]}
                 rotation={[0, -1.570796, 0]}
                 scale={10}
             >

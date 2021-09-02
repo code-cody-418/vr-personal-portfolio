@@ -44,16 +44,65 @@ export const SkillsListText = () => {
 
     const ListText = () => {
 
-        const [iconState, setIconState] = useState("reactActive")
+        //set the state of the icon
+        const [iconState, setIconState] = useState(null)
 
+        //color of text before being changed
         const startingColor = "#8f6bd9"
 
+        //allows each skill to change color
         const [reactColor, setReactColor] = useState(startingColor)
         const [expressColor, setExpressColor] = useState(startingColor)
         const [reduxColor, setReduxColor] = useState(startingColor)
         const [dockerColor, setDockerColor] = useState(startingColor)
         const [bootstrapColor, setBootstrapColor] = useState(startingColor)
         const [githubColor, setGithubColor] = useState(startingColor)
+
+        //Functionality to 30 second timer
+        const [thirtySeconds, setThirtySeconds] = useState(30)
+        const [timerOnOff, setTimerOnOff] = useState(true)
+
+        useEffect(() => {
+            if (timerOnOff === true) {
+                if (thirtySeconds === -1) {
+                    setThirtySeconds(30)
+                } else if (thirtySeconds > -2) {
+                    const intervalId = setInterval(() => {
+                        setThirtySeconds(thirtySeconds => thirtySeconds - 1)
+                    }, 1000)
+                    console.log("seconds", thirtySeconds)
+                    return () => clearInterval(intervalId)
+                }
+            }
+        }, [thirtySeconds, timerOnOff])
+
+        useEffect(() => {
+            if (thirtySeconds > 25) {
+                setIconState("reactActive")
+                setReactColor("#61dafb")
+                setGithubColor(startingColor)
+            } else if (thirtySeconds > 20) {
+                setIconState("expressActive")
+                setExpressColor("#FFFFFF")
+                setReactColor(startingColor)
+            } else if (thirtySeconds > 15) {
+                setIconState("reduxActive")
+                setReduxColor("#764abc")
+                setExpressColor(startingColor)
+            } else if (thirtySeconds > 10) {
+                setIconState("dockerActive")
+                setDockerColor("#2496ed")
+                setReduxColor(startingColor)
+            } else if (thirtySeconds > 5) {
+                setIconState("bootstrapActive")
+                setBootstrapColor("#7952b3")
+                setDockerColor(startingColor)
+            } else if (thirtySeconds > 0) {
+                setIconState("githubActive")
+                setGithubColor("#FFF")
+                setBootstrapColor(startingColor)
+            }
+        }, [iconState, thirtySeconds])
 
         return (
             <>
@@ -68,8 +117,12 @@ export const SkillsListText = () => {
                         onPointerEnter={() => {
                             setIconState("reactActive")
                             setReactColor("#61dafb")
+                            setTimerOnOff(false)
                         }}
-                        onPointerLeave={() => setReactColor(startingColor)}
+                        onPointerLeave={() => {
+                            setReactColor(startingColor)
+                            setTimerOnOff(true)
+                        }}
                     >
                         <FontConfig
                             text="React"
