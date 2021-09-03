@@ -52,7 +52,7 @@ export const SkillsListText = () => {
         const [iconState, setIconState] = useState(null)
 
         //color of text before being changed
-        const startingColor = "#8f6bd9"
+        const startingColor = "rgb(122,158,248)"
 
         //allows each skill to change color
         const [reactColor, setReactColor] = useState(startingColor)

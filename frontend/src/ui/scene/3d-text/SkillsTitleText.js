@@ -7,7 +7,7 @@ import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 export const SkillsTitleText = () => {
 
-    const [color, setColor] = useState("#00b7ff")
+    const [color, setColor] = useState("#8b0ee2")
 
     const { skillsTitleSize } = useResponsive3d()
 

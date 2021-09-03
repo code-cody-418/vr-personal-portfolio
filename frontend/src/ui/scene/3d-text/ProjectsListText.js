@@ -44,7 +44,7 @@ export const ProjectsListText = () => {
         const [exampleState, setExampleState] = useState(null)
 
         //color of text before being changed
-        const startingColor = "#8f6bd9"
+        const startingColor = "rgb(122,158,248)"
 
         //allows each skill to change color
         const [saiyanWebDevColor, setSaiyanWebDevColor] = useState(startingColor)

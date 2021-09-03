@@ -12,6 +12,7 @@ import {InfoModal} from "./InfoModal";
 import {ReferenceCenter, ReferenceProject, ReferenceSkills, RightArrow} from "./arrows/Arrows";
 import {Walls} from "./walls/Walls";
 import {SkillsIcons} from "./skills-icons/SkillsIcons";
+import {TitleProfessionText} from "./3d-text/TitleProfessionText";
 
 export const ThreeDScene = ({show, handleClose, handleShow}) => {
     return (
@@ -80,6 +81,7 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                     <Environment files={backgroundHDR} background={true}/>
                     <group>
                         <TitleText handleShow={handleShow} handleClose={handleClose}/>
+                        <TitleProfessionText />
 
                         <ProjectsTitleText/>
                         <ProjectsListText/>
