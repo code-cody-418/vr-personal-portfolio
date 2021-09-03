@@ -26,53 +26,57 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
 
             >
 
-                <OrbitControls
-                    enablePan={false}
-                    enableZoom={true}
 
-                    // distance of camera creation
-                    minDistance={0}
-                    maxDistance={3}
-
-                    rotateSpeed={0.3}
-
-                    // vertical angle limit
-                    minPolarAngle={1.5708}
-                    maxPolarAngle={1.5708}
-
-                    // horizontal angle limit
-                    minAzimuthAngle={-1.57}
-                    maxAzimuthAngle={1.57}
-
-
-                    // // extras
-                    // // minZoom={0}
-                    // // maxZoom={5}
-                    //
-                    // // vertical angle limit
-                    // // minPolarAngle={0}
-                    // // maxPolarAngle={1.5}
-                />
-
-
-                <DefaultXRControllers/>
-                <Hands/>
-                <ambientLight intensity={1}/>
-                {/*<directionalLight*/}
-                {/*    castShadow*/}
-                {/*    position={[0, 15, 25]}*/}
-                {/*    intensity={2}*/}
-                {/*    // shadow-mapSize-width={1024}*/}
-                {/*    // shadow-mapSize-height={1024}*/}
-                {/*    // shadow-camera-far={100}*/}
-                {/*    // shadow-camera-left={-50}*/}
-                {/*    // shadow-camera-right={50}*/}
-                {/*    // shadow-camera-top={50}*/}
-                {/*    // shadow-camera-bottom={-50}*/}
-                {/*/>*/}
-                {/*<pointLight position={[-10, 0, -20]} intensity={0.5}/>*/}
-                {/*<pointLight position={[0, 0, 0]} intensity={1.5}/>*/}
                 <Suspense fallback={null}>
+
+                    <OrbitControls
+                        enablePan={false}
+                        enableZoom={true}
+
+                        // distance of camera creation
+                        minDistance={0}
+                        maxDistance={3}
+
+                        rotateSpeed={0.3}
+
+                        // vertical angle limit
+                        minPolarAngle={1.5708}
+                        maxPolarAngle={1.5708}
+
+                        // horizontal angle limit
+                        minAzimuthAngle={-1.57}
+                        maxAzimuthAngle={1.57}
+
+
+                        // // extras
+                        // // minZoom={0}
+                        // // maxZoom={5}
+                        //
+                        // // vertical angle limit
+                        // // minPolarAngle={0}
+                        // // maxPolarAngle={1.5}
+                    />
+
+
+                    <DefaultXRControllers/>
+                    <Hands/>
+                    <ambientLight intensity={1}/>
+                    {/*<directionalLight*/}
+                    {/*    castShadow*/}
+                    {/*    position={[0, 15, 25]}*/}
+                    {/*    intensity={2}*/}
+                    {/*    // shadow-mapSize-width={1024}*/}
+                    {/*    // shadow-mapSize-height={1024}*/}
+                    {/*    // shadow-camera-far={100}*/}
+                    {/*    // shadow-camera-left={-50}*/}
+                    {/*    // shadow-camera-right={50}*/}
+                    {/*    // shadow-camera-top={50}*/}
+                    {/*    // shadow-camera-bottom={-50}*/}
+                    {/*/>*/}
+                    {/*<pointLight position={[-10, 0, -20]} intensity={0.5}/>*/}
+                    {/*<pointLight position={[0, 0, 0]} intensity={1.5}/>*/}
+
+
                     <Environment files={backgroundHDR} background={true}/>
                     <group>
                         <TitleText handleShow={handleShow} handleClose={handleClose}/>

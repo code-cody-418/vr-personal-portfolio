@@ -17,11 +17,19 @@ export const useResponsive3d = () => {
     const [titleXPosition, setTitleXPosition] = useState(-9)
     const [titleYPosition, setTitleYPosition] = useState(6)
 
-    //variables for the skills section
+    //variables for the skills title section
     const [skillsTitleSize, setSkillsTitleSize] = useState(5)
     const [skillsTitleXPosition, setSkillsTitleXPosition] = useState(20)
     const [skillsTitleYPosition, setSkillsTitleYPosition] = useState(7)
     const [skillsTitleZPosition, setSkillsTitleZPosition] = useState(-15)
+
+    //variables for the skills text section
+    const [skillsTextSize, setSkillsTextSize] = useState(1.5)
+    const [skillsTextXPosition, setSkillsTextXPosition] = useState(0)
+    const [skillsTextYPosition, setSkillsTextYPosition] = useState(0)
+    const [skillsTextZPosition, setSkillsTextZPosition] = useState(-15)
+    const [skillsIconSize, setSkillsIconSize] = useState(12)
+    const [skillsIconZPositionSize, setSkillsIconZPositionSize] = useState(5)
 
 
     useEffect(() => {
@@ -37,10 +45,17 @@ export const useResponsive3d = () => {
                 setTitleSize(5)
                 setTitleXPosition(-9)
                 setTitleYPosition(6)
-                //set skills
+                //set skills title
                 setSkillsTitleSize(5)
                 setSkillsTitleXPosition(20)
                 setSkillsTitleYPosition(7)
+                //set skills text
+                setSkillsTextSize(1.5)
+                setSkillsTextXPosition(0)
+                setSkillsTextYPosition(0)
+                setSkillsTextZPosition(-15)
+                setSkillsIconSize(12)
+                setSkillsIconZPositionSize(5)
             } else if (breakpoint > width) {
                 //set title
                 setTitleSize(3)
@@ -51,6 +66,13 @@ export const useResponsive3d = () => {
                 setSkillsTitleXPosition(20)
                 setSkillsTitleYPosition(7)
                 setSkillsTitleZPosition(-6)
+                //set skills text
+                setSkillsTextSize(1.5)
+                setSkillsTextXPosition(0)
+                setSkillsTextYPosition(0)
+                setSkillsTextZPosition(-8)
+                setSkillsIconSize(6)
+                setSkillsIconZPositionSize(5)
             }
         }
         handleResize()
@@ -64,7 +86,13 @@ export const useResponsive3d = () => {
         skillsTitleSize,
         skillsTitleXPosition,
         skillsTitleYPosition,
-        skillsTitleZPosition
+        skillsTitleZPosition,
+        skillsTextSize,
+        skillsTextXPosition,
+        skillsTextYPosition,
+        skillsTextZPosition,
+        skillsIconSize,
+        skillsIconZPositionSize
     }
 }
 

@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {Box, useTexture} from "@react-three/drei";
+import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 export const SkillsIcons = ({iconState}) => {
 
+    //loads textures for the icons
     const reactIcon = useTexture("/react-icon.png")
     const expressIcon = useTexture("/express-icon.png")
     const reduxIcon = useTexture("/redux-icon.png")
@@ -31,13 +33,15 @@ export const SkillsIcons = ({iconState}) => {
         // console.log("icon state", iconState)
     }, [iconState])
 
+    //sets responsive behavior
+    const { skillsIconSize, skillsIconZPositionSize } = useResponsive3d()
 
     return (
         <>
             <group
-                position={[20, 0, 20]}
+                position={[20, 0, skillsIconZPositionSize]}
                 rotation={[0, -1.570796, 0]}
-                scale={10}
+                scale={skillsIconSize}
             >
                 <mesh>
                     <planeGeometry/>

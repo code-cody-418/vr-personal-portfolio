@@ -4,6 +4,7 @@ import {useLoader} from "@react-three/fiber";
 import Blender from "../Blender";
 import {SkillsIcons} from "../skills-icons/SkillsIcons";
 import {Interactive} from "@react-three/xr";
+import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 //
 // /Basaro_Regular.json
@@ -14,12 +15,14 @@ import {Interactive} from "@react-three/xr";
 
 export const SkillsListText = () => {
 
+    const { skillsTextSize } = useResponsive3d()
+
     const FontConfig = ({text, position, rotation, uniqueColor}) => {
         const font = useLoader(THREE.FontLoader, "/Roboto-Slab-Bold.json");
         const config = useMemo(
             () => ({
                 font: font,
-                size: 1.5,
+                size: skillsTextSize,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: false,
@@ -107,6 +110,9 @@ export const SkillsListText = () => {
             }
         }, [iconState, thirtySeconds])
 
+
+        const { skillsTextXPosition, skillsTextYPosition, skillsTextZPosition } = useResponsive3d()
+
         return (
             <>
                 {/*<Blender*/}
@@ -115,7 +121,7 @@ export const SkillsListText = () => {
                 {/*/>*/}
                 <group
                     //this group moves the whole list
-                    position={[0, 0, -15]}>
+                    position = {[skillsTextXPosition, skillsTextYPosition, skillsTextZPosition]}>
                     <group
                         onPointerEnter={() => {
                             setIconState("reactActive")
@@ -253,11 +259,11 @@ export const SkillsListText = () => {
                             uniqueColor={githubColor}
                         />
                     </group>
-                    <SkillsIcons
-                        position={[0, 0, 0]}
-                        iconState={iconState}
-                    />
                 </group>
+                <SkillsIcons
+                    // position={[0, 0, 0]}
+                    iconState={iconState}
+                />
             </>
         )
     }
