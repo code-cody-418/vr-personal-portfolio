@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Box} from "@react-three/drei";
 
 // Turns on and off Reference Boxs to help position
-const visible = true
+const visible = false
 
 export const ReferenceCenter = () => {
 

@@ -31,8 +31,8 @@ export default function Kakashi(props) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      {/*<group rotation={[Math.PI / 2, 0, 0]} scale={0.1} visible={visible}>*/}
-      <group rotation={[Math.PI / 2, 0, 0]} scale={0.08} >
+      <group rotation={[Math.PI / 2, 0, 0]} scale={0.08} visible={props.expNinjaVisible}>
+      {/*<group rotation={[Math.PI / 2, 0, 0]} scale={0.08} >*/}
         <primitive object={nodes.mixamorigHips} />
         <skinnedMesh
             castShadow

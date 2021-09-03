@@ -82,27 +82,27 @@ export const SkillsListText = () => {
 
         useEffect(() => {
             if (timerOnOff === true) {
-                if (thirtySeconds > 25) {
+                if (thirtySeconds === 30) {
                     setIconState("reactActive")
                     setReactColor("#61dafb")
                     setGithubColor(startingColor)
-                } else if (thirtySeconds > 20) {
+                } else if (thirtySeconds === 25) {
                     setIconState("expressActive")
                     setExpressColor("#FFFFFF")
                     setReactColor(startingColor)
-                } else if (thirtySeconds > 15) {
+                } else if (thirtySeconds === 20) {
                     setIconState("reduxActive")
                     setReduxColor("#764abc")
                     setExpressColor(startingColor)
-                } else if (thirtySeconds > 10) {
+                } else if (thirtySeconds === 15) {
                     setIconState("dockerActive")
                     setDockerColor("#2496ed")
                     setReduxColor(startingColor)
-                } else if (thirtySeconds > 5) {
+                } else if (thirtySeconds === 10) {
                     setIconState("bootstrapActive")
                     setBootstrapColor("#7952b3")
                     setDockerColor(startingColor)
-                } else if (thirtySeconds > 0) {
+                } else if (thirtySeconds === 5) {
                     setIconState("githubActive")
                     setGithubColor("#FFF")
                     setBootstrapColor(startingColor)
