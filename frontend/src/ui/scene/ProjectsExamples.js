@@ -1,5 +1,6 @@
 import React from "react";
 import {useTexture} from "@react-three/drei";
+import {useResponsive3d} from "../../customHooks/useResponsive3d";
 
 
 export const ProjectsExamples = () => {
@@ -8,13 +9,14 @@ export const ProjectsExamples = () => {
     const alienGramExample = useTexture("/aliengram-example.png")
     // const alienGramExample = useTexture("/saiyanwebdev-example.png")
 
+    const { projectsExampleSize, projectsExampleYPosition, projectsExampleZPosition, projectsExampleYRotation } = useResponsive3d()
 
     return (
         <>
             <group
-                position={[-16, 0, 18]}
-                rotation={[0, 2.3, 0]}
-                scale={14}
+                position={[-16, projectsExampleYPosition, projectsExampleZPosition]}
+                rotation={[0, projectsExampleYRotation, 0]}
+                scale={projectsExampleSize}
             >
                 <mesh>
                     <planeGeometry/>

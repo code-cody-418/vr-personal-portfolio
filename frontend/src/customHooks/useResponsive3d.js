@@ -31,6 +31,22 @@ export const useResponsive3d = () => {
     const [skillsIconSize, setSkillsIconSize] = useState(12)
     const [skillsIconZPositionSize, setSkillsIconZPositionSize] = useState(5)
 
+    //variables for the Projects title section
+    const [projectsTitleSize, setProjectsTitleSize] = useState(5)
+    const [projectsTitleXPosition, setProjectsTitleXPosition] = useState(-20)
+    const [projectsTitleYPosition, setProjectsTitleYPosition] = useState(7)
+    const [projectsTitleZPosition, setProjectsTitleZPosition] = useState(10)
+
+    //variables for the Projects text section
+    const [projectsTextSize, setProjectsTextSize] = useState(2.5)
+    const [projectsTextXPosition, setProjectsTextXPosition] = useState(0)
+    const [projectsTextYPosition, setProjectsTextYPosition] = useState(0)
+    const [projectsTextZPosition, setProjectsTextZPosition] = useState(0)
+    const [projectsExampleSize, setProjectsExampleSize] = useState(14)
+    const [projectsExampleZPosition, setProjectsExampleZPosition] = useState(18)
+    const [projectsExampleYPosition, setProjectsExampleYPosition] = useState(0)
+    const [projectsExampleYRotation, setProjectsExampleYRotation] = useState(2.3)
+
 
     useEffect(() => {
         const handleWindowResize = () => setWidth(window.innerWidth)
@@ -56,6 +72,20 @@ export const useResponsive3d = () => {
                 setSkillsTextZPosition(-15)
                 setSkillsIconSize(12)
                 setSkillsIconZPositionSize(5)
+                //set projects title
+                setProjectsTitleSize(5)
+                setProjectsTitleXPosition(-20)
+                setProjectsTitleYPosition(7)
+                setProjectsTextZPosition(10)
+                //set projects text
+                setProjectsTextSize(2.5)
+                setProjectsTextXPosition(0)
+                setProjectsTextYPosition(0)
+                setProjectsTextZPosition(0)
+                setProjectsExampleSize(14)
+                setProjectsExampleZPosition(18)
+                setProjectsExampleYPosition(0)
+                setProjectsExampleYRotation(2.3)
             } else if (breakpoint > width) {
                 //set title
                 setTitleSize(3)
@@ -73,6 +103,20 @@ export const useResponsive3d = () => {
                 setSkillsTextZPosition(-8)
                 setSkillsIconSize(6)
                 setSkillsIconZPositionSize(5)
+                //set projects title
+                setProjectsTitleSize(3.5)
+                setProjectsTitleXPosition(-20)
+                setProjectsTitleYPosition(11)
+                setProjectsTitleZPosition(7.5)
+                //set projects text
+                setProjectsTextSize(1.5)
+                setProjectsTextXPosition(0)
+                setProjectsTextYPosition(5)
+                setProjectsTextZPosition(-2)
+                setProjectsExampleSize(14)
+                setProjectsExampleZPosition(0)
+                setProjectsExampleYPosition(-6)
+                setProjectsExampleYRotation(1.570796)
             }
         }
         handleResize()
@@ -92,7 +136,19 @@ export const useResponsive3d = () => {
         skillsTextYPosition,
         skillsTextZPosition,
         skillsIconSize,
-        skillsIconZPositionSize
+        skillsIconZPositionSize,
+        projectsTitleSize,
+        projectsTitleXPosition,
+        projectsTitleYPosition,
+        projectsTitleZPosition,
+        projectsTextSize,
+        projectsTextXPosition,
+        projectsTextYPosition,
+        projectsTextZPosition,
+        projectsExampleSize,
+        projectsExampleZPosition,
+        projectsExampleYPosition,
+        projectsExampleYRotation
     }
 }
 

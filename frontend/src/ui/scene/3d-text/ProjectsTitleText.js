@@ -1,6 +1,7 @@
 import React, {useMemo, useRef} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
+import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 
 //Extra fonts
@@ -12,12 +13,16 @@ import {useLoader} from "@react-three/fiber";
 // /Saiyan-Sans-Regular.json
 
 export const ProjectsTitleText = () => {
+
+    const { projectsTitleSize } = useResponsive3d()
+
+
     const FontConfig = ({text, position, rotation}) => {
         const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,
-                size: 5,
+                size: projectsTitleSize,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -42,13 +47,16 @@ export const ProjectsTitleText = () => {
     }
 
     const TitleText = () => {
+
+        const { projectsTitleXPosition, projectsTitleYPosition, projectsTitleZPosition } = useResponsive3d()
+
         return (
             <>
                 <group
                 >
                     <FontConfig
                         text="Projects"
-                        position={[-20, 7, 10]}
+                        position={[projectsTitleXPosition, projectsTitleYPosition, projectsTitleZPosition]}
                         rotation={[0, 1.570796, 0]}
                     />
                 </group>

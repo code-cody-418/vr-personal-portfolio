@@ -3,15 +3,19 @@ import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 import Kakashi from "../Kakashi";
 import {ProjectsExamples} from "../ProjectsExamples";
+import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 
 export const ProjectsListText = () => {
+
+    const { projectsTextSize } = useResponsive3d()
+
     const FontConfig = ({text, position, rotation}) => {
         const font = useLoader(THREE.FontLoader, "/Roboto-Slab-Bold.json");
         const config = useMemo(
             () => ({
                 font: font,
-                size: 2.5,
+                size: projectsTextSize,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -40,12 +44,25 @@ export const ProjectsListText = () => {
         const [hovered, setHovered] = useState(false)
         useEffect(() => void (document.body.style.cursor = hovered ? "pointer" : "auto"), [hovered])
 
+        const { projectsTextXPosition, projectsTextYPosition, projectsTextZPosition } = useResponsive3d()
+
         return (
             <>
                 <group
-                    position={[0, 0, 0]}
+                    position={[projectsTextXPosition, projectsTextYPosition, projectsTextZPosition]}
 
                 >
+                    <group
+                        onClick={() => window.open("https://saiyanwebdev.com/")}
+                        onPointerOver={() => setHovered(true)}
+                        onPointerOut={() => setHovered(false)}
+                    >
+                        <FontConfig
+                            text="Saiyan Web Dev"
+                            position={[-20, 2, 10]}
+                            rotation={[0, 1.570796, 0]}
+                        />
+                    </group>
                     <group
                         onClick={() => window.open("https://expninja.com/")}
                         onPointerOver={() => setHovered(true)}
@@ -53,7 +70,7 @@ export const ProjectsListText = () => {
                     >
                         <FontConfig
                             text="Exp Ninja"
-                            position={[-20, 2, 10]}
+                            position={[-20, -2, 10]}
                             rotation={[0, 1.570796, 0]}
                         />
                     </group>
@@ -64,21 +81,11 @@ export const ProjectsListText = () => {
                     >
                         <FontConfig
                             text="AlienGram"
-                            position={[-20, -2, 10]}
-                            rotation={[0, 1.570796, 0]}
-                        />
-                    </group>
-                    <group
-                        onClick={() => window.open("https://saiyanwebdev.com/")}
-                        onPointerOver={() => setHovered(true)}
-                        onPointerOut={() => setHovered(false)}
-                    >
-                        <FontConfig
-                            text="Saiyan Web Dev"
                             position={[-20, -6, 10]}
                             rotation={[0, 1.570796, 0]}
                         />
                     </group>
+
                     {/*<Kakashi*/}
                     {/*    position={[-19, -8, 18]}*/}
                     {/*    rotation={[0, 2.3, 0]}*/}
