@@ -25,7 +25,8 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                 // orthographic={true}
 
             >
-
+                <DefaultXRControllers/>
+                <Hands/>
 
                 <Suspense fallback={null}>
 
@@ -58,8 +59,7 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
                     />
 
 
-                    <DefaultXRControllers/>
-                    <Hands/>
+
                     <ambientLight intensity={1}/>
                     {/*<directionalLight*/}
                     {/*    castShadow*/}
