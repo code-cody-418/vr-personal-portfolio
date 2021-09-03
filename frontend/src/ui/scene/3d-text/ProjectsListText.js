@@ -2,6 +2,7 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 import Kakashi from "../Kakashi";
+import {ProjectsExamples} from "../ProjectsExamples";
 
 
 export const ProjectsListText = () => {
@@ -78,11 +79,12 @@ export const ProjectsListText = () => {
                             rotation={[0, 1.570796, 0]}
                         />
                     </group>
-                    <Kakashi
-                        position={[-19, -8, 18]}
-                        rotation={[0, 2.3, 0]}
-                    />
+                    {/*<Kakashi*/}
+                    {/*    position={[-19, -8, 18]}*/}
+                    {/*    rotation={[0, 2.3, 0]}*/}
+                    {/*/>*/}
                 </group>
+                <ProjectsExamples />
             </>
         )
     }
