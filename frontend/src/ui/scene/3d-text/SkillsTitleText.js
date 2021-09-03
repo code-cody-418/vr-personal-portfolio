@@ -2,19 +2,21 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 import {Interactive} from "@react-three/xr";
+import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 
 export const SkillsTitleText = () => {
 
     const [color, setColor] = useState("#00b7ff")
 
+    const { skillsTitleSize } = useResponsive3d()
 
     const FontConfig = ({text, position, rotation, color}) => {
         const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
         const config = useMemo(
             () => ({
                 font: font,
-                size: 5,
+                size: skillsTitleSize,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -38,6 +40,9 @@ export const SkillsTitleText = () => {
         )
     }
     const TitleText = () => {
+
+        const { skillsTitleXPosition, skillsTitleYPosition, skillsTitleZPosition } = useResponsive3d()
+
         return (
             <>
                 <group
@@ -50,7 +55,7 @@ export const SkillsTitleText = () => {
                     >
                         <FontConfig
                             text="Tech Skills"
-                            position={[20, 7, -15]}
+                            position={[skillsTitleXPosition, skillsTitleYPosition, skillsTitleZPosition]}
                             rotation={[0, -1.570796, 0]}
                             color={color}
                         />

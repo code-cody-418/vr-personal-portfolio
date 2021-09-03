@@ -28,7 +28,7 @@ export const SkillsIcons = ({iconState}) => {
         } else if (iconState === "githubActive") {
             setCurrentIcon(githubIcon)
         }
-        console.log("icon state", iconState)
+        // console.log("icon state", iconState)
     }, [iconState])
 
 

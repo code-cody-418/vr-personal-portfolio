@@ -71,7 +71,7 @@ export const SkillsListText = () => {
                     const intervalId = setInterval(() => {
                         setThirtySeconds(thirtySeconds => thirtySeconds - 1)
                     }, 1000)
-                    console.log("seconds", thirtySeconds)
+                    // console.log("seconds", thirtySeconds)
                     return () => clearInterval(intervalId)
                 }
             }

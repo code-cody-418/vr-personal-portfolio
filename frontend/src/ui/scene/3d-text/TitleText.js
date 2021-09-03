@@ -14,7 +14,7 @@ export const TitleText = ({handleShow, handleClose }) => {
 
         // const titleSize = 5
 
-        console.log("titleSize", titleSize)
+        // console.log("titleSize", titleSize)
 
         const config = useMemo(
             () => ({
@@ -52,7 +52,7 @@ export const TitleText = ({handleShow, handleClose }) => {
         // const titleXPosition = -9
         // const titleYPosition = 6
 
-        console.log("titlePostion", titleXPosition)
+        // console.log("titlePostion", titleXPosition)
 
         //hover cursor change
         const [hovered, setHovered] = useState(false)
