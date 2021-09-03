@@ -105,6 +105,7 @@ export const ProjectsListText = () => {
                             setTimerOnOff(false)
                             setSaiyanWebDevColor("#2779F6")
                             setHovered(true)
+                            setExampleState("saiyanWebDevActive")
                         }}
                         onPointerOut={() => {
                             setTimerOnOff(true)
@@ -125,6 +126,7 @@ export const ProjectsListText = () => {
                             setTimerOnOff(false)
                             setExpNinjaColor("#2779F6")
                             setHovered(true)
+                            setExampleState("expNinjaActive")
                         }}
                         onPointerOut={() => {
                             setTimerOnOff(true)
@@ -145,6 +147,7 @@ export const ProjectsListText = () => {
                             setTimerOnOff(false)
                             setAlienGramColor("#2779F6")
                             setHovered(true)
+                            setExampleState("alienGramActive")
                         }}
                         onPointerOut={() => {
                             setTimerOnOff(true)

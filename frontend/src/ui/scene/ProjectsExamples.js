@@ -20,6 +20,8 @@ export const ProjectsExamples = ({exampleState}) => {
     useEffect(() => {
         if (exampleState === "saiyanWebDevActive") {
             setCurrentExample(saiyanWebDevExample)
+            setCurrentExampleVisible(true)
+            setExpNinjaVisible(false)
         } else if (exampleState === "expNinjaActive") {
             setCurrentExampleVisible(false)
             setExpNinjaVisible(true)
@@ -32,7 +34,16 @@ export const ProjectsExamples = ({exampleState}) => {
     }, [exampleState])
 
 
-    const { projectsExampleSize, projectsExampleYPosition, projectsExampleZPosition, projectsExampleYRotation } = useResponsive3d()
+    const {
+        projectsExampleSize,
+        projectsExampleYPosition,
+        projectsExampleZPosition,
+        projectsExampleYRotation,
+        projectsExpNinjaExampleSize,
+        projectsExpNinjaExampleYPosition,
+        projectsExpNinjaExampleZPosition,
+        projectsExpNinjaExampleYRotation
+    } = useResponsive3d()
 
     return (
         <>
@@ -42,7 +53,7 @@ export const ProjectsExamples = ({exampleState}) => {
                 scale={projectsExampleSize}
             >
                 <mesh
-                visible={currentExampleVisible}
+                    visible={currentExampleVisible}
                 >
                     <planeGeometry/>
                     <meshStandardMaterial
@@ -53,10 +64,11 @@ export const ProjectsExamples = ({exampleState}) => {
                 </mesh>
             </group>
             <Kakashi
-                position={[-19, -8, 18]}
-                rotation={[0, 2.3, 0]}
+                position={[-19, projectsExpNinjaExampleYPosition, projectsExpNinjaExampleZPosition]}
+                rotation={[0, projectsExpNinjaExampleYRotation, 0]}
                 expNinjaVisible={expNinjaVisible}
             />
+
         </>
     )
 }

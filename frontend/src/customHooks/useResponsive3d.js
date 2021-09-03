@@ -46,6 +46,10 @@ export const useResponsive3d = () => {
     const [projectsExampleZPosition, setProjectsExampleZPosition] = useState(18)
     const [projectsExampleYPosition, setProjectsExampleYPosition] = useState(0)
     const [projectsExampleYRotation, setProjectsExampleYRotation] = useState(2.3)
+    const [projectsExpNinjaExampleSize, setProjectsExpNinjaExampleSize] = useState(0.08)
+    const [projectsExpNinjaExampleZPosition, setProjectsExpNinjaExampleZPosition] = useState(18)
+    const [projectsExpNinjaExampleYPosition, setProjectsExpNinjaExampleYPosition] = useState(-8)
+    const [projectsExpNinjaExampleYRotation, setProjectsExpNinjaExampleYRotation] = useState(2.3)
 
 
     useEffect(() => {
@@ -86,6 +90,10 @@ export const useResponsive3d = () => {
                 setProjectsExampleZPosition(18)
                 setProjectsExampleYPosition(0)
                 setProjectsExampleYRotation(2.3)
+                setProjectsExpNinjaExampleSize(0.08)
+                setProjectsExpNinjaExampleYPosition(-8)
+                setProjectsExpNinjaExampleZPosition(18)
+                setProjectsExpNinjaExampleYRotation(2.3)
             } else if (breakpoint > width) {
                 //set title
                 setTitleSize(3)
@@ -117,6 +125,10 @@ export const useResponsive3d = () => {
                 setProjectsExampleZPosition(0)
                 setProjectsExampleYPosition(-6)
                 setProjectsExampleYRotation(1.570796)
+                setProjectsExpNinjaExampleSize(0.05)
+                setProjectsExpNinjaExampleYPosition(-12)
+                setProjectsExpNinjaExampleZPosition(0)
+                setProjectsExpNinjaExampleYRotation(1.570796)
             }
         }
         handleResize()
@@ -148,7 +160,11 @@ export const useResponsive3d = () => {
         projectsExampleSize,
         projectsExampleZPosition,
         projectsExampleYPosition,
-        projectsExampleYRotation
+        projectsExampleYRotation,
+        projectsExpNinjaExampleSize,
+        projectsExpNinjaExampleYPosition,
+        projectsExpNinjaExampleZPosition,
+        projectsExpNinjaExampleYRotation
     }
 }
 
