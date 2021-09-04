@@ -49,7 +49,7 @@ export const TitleProfessionText = () => {
     const ProfessionText = () => {
 
         //set the state of the icon
-        const [textState, setTextState] = useState("Full Stack Website Creator")
+        const [textState, setTextState] = useState("")
 
         //color of text before being changed
         const startingColor = "#ea2e6f"
@@ -59,7 +59,7 @@ export const TitleProfessionText = () => {
 
         //Functionality to 30 second timer
         const [thirtySeconds, setThirtySeconds] = useState(30)
-        const [timerOnOff, setTimerOnOff] = useState(false)
+        const [timerOnOff, setTimerOnOff] = useState(true)
 
         useEffect(() => {
             if (timerOnOff === true) {
@@ -78,10 +78,18 @@ export const TitleProfessionText = () => {
         useEffect(() => {
             if (timerOnOff === true) {
                 if (thirtySeconds === 30) {
-                    setTextState("Full Stack")
-                    setTextColor("#61dafb")
-                } else if (thirtySeconds === 25) {
+                    setTextState("Full ")
+                } else if (thirtySeconds === 28) {
+                    setTextState("Full Stack ")
+                } else if (thirtySeconds === 26) {
+                    setTextState("Full Stack Website")
+                } else if (thirtySeconds === 24) {
                     setTextState("Full Stack Website Creator")
+                } else if (thirtySeconds === 22) {
+                    setTextState("Full Stack Website Designer")
+                } else if (thirtySeconds === 20) {
+                    setTextState("Full Stack Website Developer")
+                    setTimerOnOff(false)
                 }
             }
         }, [textState, thirtySeconds])
