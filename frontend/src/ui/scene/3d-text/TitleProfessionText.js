@@ -17,12 +17,12 @@ export const TitleProfessionText = () => {
 
     // const {skillsTextSize} = useResponsive3d()
 
-    const FontConfig = ({text, position, rotation, uniqueColor}) => {
+    const FontConfig = ({text, position, rotation, uniqueColor, uniqueSize}) => {
         const font = useLoader(THREE.FontLoader, "/Roboto-Slab-Bold.json");
         const config = useMemo(
             () => ({
                 font: font,
-                size: 1,
+                size: uniqueSize,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: false,
@@ -39,7 +39,11 @@ export const TitleProfessionText = () => {
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
                         <textGeometry args={[text, config]}/>
-                        <meshStandardMaterial color={uniqueColor}/>
+                        { uniqueSize === 1 ? //conditional to determine material of text and description
+                            <meshStandardMaterial color={uniqueColor}/>
+                            :
+                            <meshNormalMaterial />
+                        }
                     </mesh>
                 </group>
             </>
@@ -50,9 +54,10 @@ export const TitleProfessionText = () => {
 
         //set the state of the icon
         const [textState, setTextState] = useState("")
+        const [descriptionState, setDescriptionState] = useState("")
 
         //color of text before being changed
-        const startingColor = "#ea2e6f"
+        let startingColor = "#ea2e6f"
 
         //allows each skill to change color
         const [textColor, setTextColor] = useState(startingColor)
@@ -84,11 +89,25 @@ export const TitleProfessionText = () => {
                 } else if (thirtySeconds === 26) {
                     setTextState("Full Stack Website")
                 } else if (thirtySeconds === 24) {
-                    setTextState("Full Stack Website Creator")
+                    setDescriptionState("Creator")
                 } else if (thirtySeconds === 22) {
-                    setTextState("Full Stack Website Designer")
+                    setDescriptionState("Designer")
                 } else if (thirtySeconds === 20) {
-                    setTextState("Full Stack Website Developer")
+                    setDescriptionState("Developer")
+                } else if (thirtySeconds === 18) {
+                    setDescriptionState("Creator")
+                } else if (thirtySeconds === 16) {
+                    setDescriptionState("Designer")
+                } else if (thirtySeconds === 14) {
+                    setDescriptionState("Developer")
+                } else if (thirtySeconds === 12) {
+                    setDescriptionState("Creator")
+                } else if (thirtySeconds === 10) {
+                    setDescriptionState("Designer")
+                } else if (thirtySeconds === 8) {
+                    setDescriptionState("Developer")
+                } else if (thirtySeconds === 6) {
+                    setDescriptionState("Creator")
                     setTimerOnOff(false)
                 }
             }
@@ -99,12 +118,24 @@ export const TitleProfessionText = () => {
 
         return (
             <>
-                <FontConfig
-                    text={textState}
-                    position={[-10, -5, -15]} //separate each new item in list by y-2
-                    rotation={[0, 0, 0]}
-                    uniqueColor={textColor}
-                />
+                <group
+                    position={[0, 0, 0]}
+                >
+                    <FontConfig
+                        text={textState}
+                        position={[-10, -5, -15]} //separate each new item in list by y-2
+                        rotation={[0, 0, 0]}
+                        uniqueColor={textColor}
+                        uniqueSize={1}
+                    />
+                    <FontConfig
+                        text={descriptionState}
+                        position={[3, -5, -15]} //separate each new item in list by y-2
+                        rotation={[0, 0, 0]}
+                        uniqueColor={textColor}
+                        uniqueSize={1.5}
+                    />
+                </group>
             </>
         )
     }
