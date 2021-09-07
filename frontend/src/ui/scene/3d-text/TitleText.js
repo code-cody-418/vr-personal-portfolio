@@ -4,13 +4,13 @@ import {useLoader} from "@react-three/fiber";
 import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
 
-export const TitleText = ({handleShow, handleClose }) => {
+export const TitleText = ({handleShow, handleClose}) => {
 
     const FontConfig = ({text}) => {
         const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
 
         // sets the size of the 3d text based on mobile or desktop using a custom hook
-        const { titleSize } = useResponsive3d()
+        const {titleSize} = useResponsive3d()
 
         // const titleSize = 5
 
@@ -36,9 +36,9 @@ export const TitleText = ({handleShow, handleClose }) => {
             <>
                 <group
                 >
-                    <mesh ref={mesh} >
-                        <textGeometry args={[text, config]} />
-                        <meshNormalMaterial />
+                    <mesh ref={mesh}>
+                        <textGeometry args={[text, config]}/>
+                        <meshNormalMaterial/>
                     </mesh>
                 </group>
             </>
@@ -47,7 +47,7 @@ export const TitleText = ({handleShow, handleClose }) => {
 
     const PortfolioText = () => {
 
-        const { titleXPosition, titleYPosition } = useResponsive3d()
+        const {titleXPosition, titleYPosition, titleGroupYPosition} = useResponsive3d()
 
         // const titleXPosition = -9
         // const titleYPosition = 6
@@ -61,31 +61,35 @@ export const TitleText = ({handleShow, handleClose }) => {
         return (
             <>
                 <group
-                    onClick={handleShow}
-                    onPointerOver={() => setHovered(true)}
-                    onPointerOut={() => setHovered(false)}
-                    position={[titleXPosition, titleYPosition, -15]}
+                    position={[0, titleGroupYPosition, 0]}
                 >
-                    <FontConfig
-                        text="Codys"
-                    />
-                </group>
-                <group
-                    onClick={handleShow}
-                    onPointerOver={() => setHovered(true)}
-                    onPointerOut={() => setHovered(false)}
-                    position={[titleXPosition, 0, -15]}
-                >
-                    <FontConfig
-                        text="Portfolio"
-                    />
+                    <group
+                        onClick={handleShow}
+                        onPointerOver={() => setHovered(true)}
+                        onPointerOut={() => setHovered(false)}
+                        position={[titleXPosition, titleYPosition, -15]}
+                    >
+                        <FontConfig
+                            text="Codys"
+                        />
+                    </group>
+                    <group
+                        onClick={handleShow}
+                        onPointerOver={() => setHovered(true)}
+                        onPointerOut={() => setHovered(false)}
+                        position={[titleXPosition, 0, -15]}
+                    >
+                        <FontConfig
+                            text="Portfolio"
+                        />
+                    </group>
                 </group>
             </>
         )
     }
     return (
         <>
-            <PortfolioText />
+            <PortfolioText/>
         </>
     )
 }

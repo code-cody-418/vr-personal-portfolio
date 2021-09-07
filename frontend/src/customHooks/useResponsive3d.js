@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 
 // A responsive hook that returns sizes and positions as a number for 3D objects to be mobile Responcive
 
-
 export const useResponsive3d = () => {
 
     //This is the window Width in which responsive behavior will occur
@@ -16,6 +15,15 @@ export const useResponsive3d = () => {
     const [titleSize, setTitleSize] = useState(5)
     const [titleXPosition, setTitleXPosition] = useState(-9)
     const [titleYPosition, setTitleYPosition] = useState(6)
+    const [titleGroupYPosition, setTitleGroupYPosition] = useState(0)
+
+    //variables for the profession text
+    const [professionSize, setProfessionSize] = useState(1)
+    const [professionTitleSize, setProfessionTitleSize] = useState(1.5)
+    const [professionXPosition, setProfessionXPosition] = useState(-10)
+    const [professionYPosition, setProfessionYPosition] = useState(-5)
+    const [professionTitleXPosition, setProfessionTitleXPosition] = useState(3)
+    const [professionTitleYPosition, setProfessionTitleYPosition] = useState(-5)
 
     //variables for the skills title section
     const [skillsTitleSize, setSkillsTitleSize] = useState(5)
@@ -51,13 +59,14 @@ export const useResponsive3d = () => {
     const [projectsExpNinjaExampleYPosition, setProjectsExpNinjaExampleYPosition] = useState(-8)
     const [projectsExpNinjaExampleYRotation, setProjectsExpNinjaExampleYRotation] = useState(2.3)
 
-
+//This determines the size of the window
     useEffect(() => {
         const handleWindowResize = () => setWidth(window.innerWidth)
         window.addEventListener("resize", handleWindowResize)
         return () => window.removeEventListener("resize", handleWindowResize)
     }, [width, titleSize])
 
+    //this sets the sizes and positions of 3d objects based on the size of the window and a breaking point
     useEffect(() => {
         const handleResize = () => {
             if (breakpoint < width) {
@@ -65,6 +74,14 @@ export const useResponsive3d = () => {
                 setTitleSize(5)
                 setTitleXPosition(-9)
                 setTitleYPosition(6)
+                setTitleGroupYPosition(0)
+                //set profession text
+                setProfessionSize(1)
+                setProfessionTitleSize(1.5)
+                setProfessionXPosition(-10)
+                setProfessionYPosition(-5)
+                setProfessionTitleXPosition(3)
+                setProfessionTitleYPosition(-5)
                 //set skills title
                 setSkillsTitleSize(5)
                 setSkillsTitleXPosition(20)
@@ -99,6 +116,14 @@ export const useResponsive3d = () => {
                 setTitleSize(3)
                 setTitleXPosition(-5)
                 setTitleYPosition(3)
+                setTitleGroupYPosition(5)
+                //set profession text
+                setProfessionSize(0.9)
+                setProfessionTitleSize(1.8)
+                setProfessionXPosition(-5)
+                setProfessionYPosition(1)
+                setProfessionTitleXPosition(-5)
+                setProfessionTitleYPosition(-2)
                 //set skills
                 setSkillsTitleSize(2)
                 setSkillsTitleXPosition(20)
@@ -135,10 +160,17 @@ export const useResponsive3d = () => {
         // return () => handleResize
     }, [width])
 
-    return {
+    return { //these are all the returned exports
         titleSize,
         titleXPosition,
         titleYPosition,
+        titleGroupYPosition,
+        professionSize,
+        professionTitleSize,
+        professionXPosition,
+        professionYPosition,
+        professionTitleXPosition,
+        professionTitleYPosition,
         skillsTitleSize,
         skillsTitleXPosition,
         skillsTitleYPosition,

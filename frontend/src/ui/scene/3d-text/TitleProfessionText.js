@@ -17,7 +17,9 @@ export const TitleProfessionText = () => {
 
     // const {skillsTextSize} = useResponsive3d()
 
-    const FontConfig = ({text, position, rotation, uniqueColor, uniqueSize}) => {
+    const {professionSize, professionTitleSize, professionXPosition, professionYPosition, professionTitleXPosition, professionTitleYPosition} = useResponsive3d()
+
+    const FontConfig = ({text, position, rotation, uniqueColor, uniqueSize, uniqueMaterial}) => {
         const font = useLoader(THREE.FontLoader, "/Roboto-Slab-Bold.json");
         const config = useMemo(
             () => ({
@@ -39,7 +41,7 @@ export const TitleProfessionText = () => {
                 <group position={position} rotation={rotation}>
                     <mesh ref={mesh}>
                         <textGeometry args={[text, config]}/>
-                        { uniqueSize === 1 ? //conditional to determine material of text and description
+                        { uniqueMaterial === false ? //conditional to determine material of text and description
                             <meshStandardMaterial color={uniqueColor}/>
                             :
                             <meshNormalMaterial />
@@ -114,8 +116,6 @@ export const TitleProfessionText = () => {
         }, [textState, thirtySeconds])
 
 
-        // const {skillsTextXPosition, skillsTextYPosition, skillsTextZPosition} = useResponsive3d()
-
         return (
             <>
                 <group
@@ -123,17 +123,19 @@ export const TitleProfessionText = () => {
                 >
                     <FontConfig
                         text={textState}
-                        position={[-10, -5, -15]} //separate each new item in list by y-2
+                        position={[professionXPosition, professionYPosition, -15]} //separate each new item in list by y-2
                         rotation={[0, 0, 0]}
                         uniqueColor={textColor}
-                        uniqueSize={1}
+                        uniqueSize={professionSize}
+                        uniqueMaterial={false}
                     />
                     <FontConfig
                         text={descriptionState}
-                        position={[3, -5, -15]} //separate each new item in list by y-2
+                        position={[professionTitleXPosition, professionTitleYPosition, -15]} //separate each new item in list by y-2
                         rotation={[0, 0, 0]}
                         uniqueColor={textColor}
-                        uniqueSize={1.5}
+                        uniqueSize={professionTitleSize}
+                        uniqueMaterial={true}
                     />
                 </group>
             </>
