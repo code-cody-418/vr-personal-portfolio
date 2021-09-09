@@ -14,6 +14,18 @@ services:
     volumes:
       - ./backend/src:/home/node/app/src
       - ./backend/tsconfig.json:/home/node/app/tsconfig.json
+  app:
+    build: frontend
+    depends_on:
+      - node
+    #    For deploying to server use ports: - 80:80
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
+      - /docker-volumes/pwp/etc/letsencrypt/live/mycodingskillz.com/fullchain.pem:/etc/letsencrypt/live/mycodingskillz.com/fullchain.pem
+      - /docker-volumes/pwp/etc/letsencrypt/live/mycodingskillz.com/privkey.pem:/etc/letsencrypt/live/mycodingskillz.com/privkey.pem
   sql:
     build: ./sql
     env_file:
