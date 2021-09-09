@@ -9,7 +9,6 @@ const mailgun = require("mailgun-js")
 export const contactFormController = async (request: Request, response: Response): Promise<Response | undefined> => {
     try {
 
-        // @ts-ignore
         const { contactFormName, contactFormEmail, contactFormSubject, contactFormMessage } = request.body
 
         console.log("request from body", contactFormEmail, contactFormSubject, contactFormMessage, contactFormName)
