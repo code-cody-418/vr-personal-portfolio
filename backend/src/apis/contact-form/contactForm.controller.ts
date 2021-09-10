@@ -11,7 +11,7 @@ export const contactFormController = async (request: Request, response: Response
 // @ts-ignore
         const { contactFormName, contactFormEmail, contactFormSubject, contactFormMessage } = request.body
 
-        console.log("request from body", contactFormEmail, contactFormSubject, contactFormMessage, contactFormName)
+        // console.log("request from body", contactFormEmail, contactFormMessage, contactFormName)
 
         // const contactForm: ContactForm = {
         //     contactFormEmail,
@@ -23,8 +23,8 @@ export const contactFormController = async (request: Request, response: Response
         const mailgunMessage = {
             from: `Mailgun Sandbox <postmaster@${process.env.MAILGUN_DOMAIN}>`,
             to: process.env.MAIL_RECIPIENT,
-            subject: contactFormEmail, contactFormSubject,
-            text: contactFormMessage
+            subject: contactFormEmail,
+            text: `${contactFormName}, ${contactFormSubject}, ${contactFormMessage}`
         }
 
         const emailComposer: MailComposer = new MailComposer(mailgunMessage)
