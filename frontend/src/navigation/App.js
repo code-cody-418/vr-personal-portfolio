@@ -2,16 +2,17 @@ import {BrowserRouter} from "react-router-dom";
 import {Route, Switch} from 'react-router'
 import {Home} from "../ui/Home";
 
-function App() {
-    return (
-        <>
-            <BrowserRouter>
-                <Switch>
-                  <Route exact='/' component={Home} />
-                </Switch>
-            </BrowserRouter>
-        </>
-    );
-}
+import {Provider} from "react-redux";
 
-export default App;
+export const App = (store) => (
+    <>
+    <Provider store={store}>
+    <BrowserRouter>
+        <Switch>
+            <Route exact='/' component={Home}/>
+        </Switch>
+    </BrowserRouter>
+    </Provider>
+</>
+)
+;
