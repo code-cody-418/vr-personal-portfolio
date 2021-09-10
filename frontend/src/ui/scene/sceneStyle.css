@@ -15,9 +15,4 @@ body,
     height: 100vh;
 }
 
-.menu-modal {
-    width: 50vw !important;
-    max-width: 50vw !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-}
+

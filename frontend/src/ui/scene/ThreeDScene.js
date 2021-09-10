@@ -8,7 +8,7 @@ import {SkillsTitleText} from "./3d-text/SkillsTitleText";
 import {ProjectsTitleText} from "./3d-text/ProjectsTitleText";
 import {ProjectsListText} from "./3d-text/ProjectsListText";
 import {SkillsListText} from "./3d-text/SkillsListText";
-import {InfoModal} from "./InfoModal";
+import {ContactFormModal} from "../pop-ups/ContactFormModal";
 import {ReferenceCenter, ReferenceProject, ReferenceSkills, RightArrow} from "./arrows/Arrows";
 import {Walls} from "./walls/Walls";
 import {SkillsIcons} from "./skills-icons/SkillsIcons";
@@ -17,7 +17,7 @@ import {TitleProfessionText} from "./3d-text/TitleProfessionText";
 export const ThreeDScene = ({show, handleClose, handleShow}) => {
     return (
         <>
-            <InfoModal show={show} handleClose={handleClose} handleShow={handleShow}/>
+            <ContactFormModal show={show} handleClose={handleClose} handleShow={handleShow}/>
             <VRCanvas
                 // shadows
                 // camera={{position: [0, 0, 0], fov: 55}}
