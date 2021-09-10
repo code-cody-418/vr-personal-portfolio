@@ -1,6 +1,5 @@
 import {request, response} from "express";
 import {Status} from "../../utils/interfaces/Status";
-import {ContactForm} from "../../utils/interfaces/ContactForm";
 import MailComposer from "nodemailer/lib/mail-composer";
 
 const mailgun = require("mailgun-js")
