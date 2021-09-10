@@ -1,6 +1,7 @@
 import React from "react";
 import {Button, Modal} from "react-bootstrap";
 import "./modalStyles.css"
+import {ContactForm} from "./ContactForm";
 
 export const ContactFormModal = ({ show, handleClose, handleShow }) => {
     return (
@@ -9,17 +10,22 @@ export const ContactFormModal = ({ show, handleClose, handleShow }) => {
             {/*    Launch demo modal*/}
             {/*</Button>*/}
 
-            <Modal show={show} onHide={handleClose} dialogClassName="menu-modal">
+            <Modal show={show} onHide={handleClose}
+                   // dialogClassName="menu-modal"
+            >
                 <Modal.Header
                     closeButton
-                    className="modal-background">
+                    // className="modal-background"
+                >
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
                 <Modal.Body
-                    className="modal-background"
-                >Woohoo, you're reading this text in a modal!</Modal.Body>
+                    // className="modal-background"
+                >
+                    <ContactForm />
+                </Modal.Body>
                 <Modal.Footer
-                    className="modal-background"
+                    // className="modal-background"
                 >
                     <Button variant="secondary" onClick={handleClose}>
                         Close
