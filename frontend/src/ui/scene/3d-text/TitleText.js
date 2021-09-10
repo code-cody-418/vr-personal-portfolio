@@ -2,9 +2,10 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
 import {useResponsive3d} from "../../../customHooks/useResponsive3d";
+import {Contact} from "../../Contact";
 
 
-export const TitleText = ({handleShow, handleClose}) => {
+export const TitleText = () => {
 
     const FontConfig = ({text}) => {
         const font = useLoader(THREE.FontLoader, "/Saiyan-Sans-Regular.json");
@@ -64,7 +65,7 @@ export const TitleText = ({handleShow, handleClose}) => {
                     position={[0, titleGroupYPosition, 0]}
                 >
                     <group
-                        onClick={handleShow}
+                        onClick={ () => window.location = '/contact-form' }
                         onPointerOver={() => setHovered(true)}
                         onPointerOut={() => setHovered(false)}
                         position={[titleXPosition, titleYPosition, -15]}
@@ -74,7 +75,6 @@ export const TitleText = ({handleShow, handleClose}) => {
                         />
                     </group>
                     <group
-                        onClick={handleShow}
                         onPointerOver={() => setHovered(true)}
                         onPointerOut={() => setHovered(false)}
                         position={[titleXPosition, 0, -15]}

@@ -14,10 +14,9 @@ import {Walls} from "./walls/Walls";
 import {SkillsIcons} from "./skills-icons/SkillsIcons";
 import {TitleProfessionText} from "./3d-text/TitleProfessionText";
 
-export const ThreeDScene = ({show, handleClose, handleShow}) => {
+export const ThreeDScene = () => {
     return (
         <>
-            <ContactFormModal show={show} handleClose={handleClose} handleShow={handleShow}/>
             <VRCanvas
                 // shadows
                 // camera={{position: [0, 0, 0], fov: 55}}
@@ -80,7 +79,7 @@ export const ThreeDScene = ({show, handleClose, handleShow}) => {
 
                     <Environment files={backgroundHDR} background={true}/>
                     <group>
-                        <TitleText handleShow={handleShow} handleClose={handleClose}/>
+                        <TitleText />
                         <TitleProfessionText />
 
                         <ProjectsTitleText/>

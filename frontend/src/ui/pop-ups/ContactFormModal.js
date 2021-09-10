@@ -15,17 +15,17 @@ export const ContactFormModal = ({ show, handleClose, handleShow }) => {
             >
                 <Modal.Header
                     closeButton
-                    // className="modal-background"
+                    className="modal-background"
                 >
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
                 <Modal.Body
-                    // className="modal-background"
+                    className="modal-background"
                 >
                     <ContactForm />
                 </Modal.Body>
                 <Modal.Footer
-                    // className="modal-background"
+                    className="modal-background"
                 >
                     <Button variant="secondary" onClick={handleClose}>
                         Close

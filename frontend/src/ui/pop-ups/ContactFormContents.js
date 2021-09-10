@@ -125,7 +125,7 @@ export const ContactFormContents = (props) => {
                 <div className="form-group">
                     <button className="btn" type="submit">Submit</button>
                 </div>
-                <FormDebugger {...props} />
+                {/*<FormDebugger {...props} />*/}
             </form>
             {
                 status && (<div className={status.type}>{status.message}</div>)
