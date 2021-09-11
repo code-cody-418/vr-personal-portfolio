@@ -60,10 +60,17 @@ export const useResponsive3d = () => {
     const [projectsExpNinjaExampleYRotation, setProjectsExpNinjaExampleYRotation] = useState(2.3)
 
     //variables for the Contact Form
-    const [contactFormTextSize, setContactFormTextSize] = useState(5)
-    const [contactFormTextXPosition, setContactFormTextXPosition] = useState(-20)
-    const [contactFormTextYPosition, setContactFormTextYPosition] = useState(7)
-    const [contactFormTextZPosition, setContactFormTextZPosition] = useState(10)
+    const [contactFormTextSize, setContactFormTextSize] = useState(2)
+    const [contactFormTextXPosition, setContactFormTextXPosition] = useState(-25)
+    const [contactFormTextYPosition, setContactFormTextYPosition] = useState(-10)
+    const [contactFormTextZPosition, setContactFormTextZPosition] = useState(-15)
+
+    //variables for the Contact Form Button
+    const [contactButtonWidthSize, setContactButtonWidthSize] = useState(20)
+    const [contactButtonHeightSize, setContactButtonHeightSize] = useState(5)
+    const [contactButtonXPosition, setContactButtonXPosition] = useState(-16)
+    const [contactButtonYPosition, setContactButtonYPosition] = useState(-9)
+    const [contactButtonZPosition, setContactButtonZPosition] = useState(-15)
 
 //This determines the size of the window
     useEffect(() => {
@@ -119,9 +126,15 @@ export const useResponsive3d = () => {
                 setProjectsExpNinjaExampleYRotation(2.3)
                 //set contact form text
                 setContactFormTextSize(2)
-                setContactFormTextXPosition(0)
-                setContactFormTextYPosition(0)
-                setContactFormTextZPosition(0)
+                setContactFormTextXPosition(-25)
+                setContactFormTextYPosition(-10)
+                setContactFormTextZPosition(-15)
+                //set contact button size
+                setContactButtonWidthSize(20)
+                setContactButtonHeightSize(5)
+                setContactButtonXPosition(-16)
+                setContactButtonYPosition(-9)
+                setContactButtonZPosition(-15)
             } else if (breakpoint > width) {
                 //set title
                 setTitleSize(3)
@@ -165,10 +178,16 @@ export const useResponsive3d = () => {
                 setProjectsExpNinjaExampleYPosition(-12)
                 setProjectsExpNinjaExampleZPosition(0)
                 setProjectsExpNinjaExampleYRotation(1.570796)
-                setContactFormTextSize(2)
-                setContactFormTextXPosition(0)
-                setContactFormTextYPosition(0)
-                setContactFormTextZPosition(0)
+                setContactFormTextSize(1)
+                setContactFormTextXPosition(-5)
+                setContactFormTextYPosition(-10)
+                setContactFormTextZPosition(-15)
+                //set contact button size
+                setContactButtonWidthSize(11)
+                setContactButtonHeightSize(2)
+                setContactButtonXPosition(-0.5)
+                setContactButtonYPosition(-9.5)
+                setContactButtonZPosition(-15)
             }
         }
         handleResize()
@@ -215,7 +234,12 @@ export const useResponsive3d = () => {
         contactFormTextSize,
         contactFormTextXPosition,
         contactFormTextYPosition,
-        contactFormTextZPosition
+        contactFormTextZPosition,
+        contactButtonWidthSize,
+        contactButtonHeightSize,
+        contactButtonXPosition,
+        contactButtonYPosition,
+        contactButtonZPosition
     }
 }
 

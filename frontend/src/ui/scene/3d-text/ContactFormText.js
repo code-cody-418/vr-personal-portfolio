@@ -22,8 +22,7 @@ export const ContactFormText = () => {
         const config = useMemo(
             () => ({
                 font: font,
-                // size: contactFormTextSize,
-                size: 2,
+                size: contactFormTextSize,
                 height: 0.2,
                 curveSegments: 32,
                 bevelEnabled: true,
@@ -49,7 +48,17 @@ export const ContactFormText = () => {
 
     const TitleText = () => {
 
-        const { contactFormTextXPosition, contactFormTextYPosition, contactFormTextZPosition } = useResponsive3d()
+        const {
+            contactFormTextXPosition,
+            contactFormTextYPosition,
+            contactFormTextZPosition,
+            contactButtonWidthSize,
+            contactButtonHeightSize,
+            contactButtonXPosition,
+            contactButtonYPosition,
+            contactButtonZPosition
+
+        } = useResponsive3d()
 
         const [buttonColor, setButtonColor] = useState("#fff")
 
@@ -74,15 +83,14 @@ export const ContactFormText = () => {
                 >
                     <FontConfig
                         text="Contact Me"
-                        // position={[contactFormTextXPosition, contactFormTextYPosition, contactFormTextZPosition]}
-                        position={[-25, -10, -15]}
+                        position={[contactFormTextXPosition, contactFormTextYPosition, contactFormTextZPosition]}
                         // rotation={[0, .75, 0]}
                     />
                     <mesh //this is the contact form button as a Plane geometry
-                        position={[-16, -9, -15]}
+                        position={[contactButtonXPosition, contactButtonYPosition, contactButtonZPosition]}
                     >
                         <planeGeometry
-                            attach='geometry' args={[20, 5]}
+                            attach='geometry' args={[contactButtonWidthSize, contactButtonHeightSize]}
                         />
                         <meshBasicMaterial
                         color={buttonColor}
