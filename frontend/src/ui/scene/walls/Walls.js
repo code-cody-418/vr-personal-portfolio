@@ -47,7 +47,7 @@ export const Walls = () => {
                 visible={wallVisible}
             >
                 <planeBufferGeometry attach='geometry' args={[wallHeight, wallWidth]}/>
-                <meshStandardMaterial attach='material' color={wallColor} />
+                <meshStandardMaterial attach='material' color={"#000"} />
             </mesh>
 
             {/*Back Wall*/}

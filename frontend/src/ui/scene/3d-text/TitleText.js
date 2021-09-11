@@ -65,9 +65,6 @@ export const TitleText = () => {
                     position={[0, titleGroupYPosition, 0]}
                 >
                     <group
-                        onClick={ () => window.location = '/contact-form' }
-                        onPointerOver={() => setHovered(true)}
-                        onPointerOut={() => setHovered(false)}
                         position={[titleXPosition, titleYPosition, -15]}
                     >
                         <FontConfig
@@ -75,8 +72,6 @@ export const TitleText = () => {
                         />
                     </group>
                     <group
-                        onPointerOver={() => setHovered(true)}
-                        onPointerOut={() => setHovered(false)}
                         position={[titleXPosition, 0, -15]}
                     >
                         <FontConfig

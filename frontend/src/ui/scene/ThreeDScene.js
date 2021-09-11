@@ -13,6 +13,7 @@ import {ReferenceCenter, ReferenceProject, ReferenceSkills, RightArrow} from "./
 import {Walls} from "./walls/Walls";
 import {SkillsIcons} from "./skills-icons/SkillsIcons";
 import {TitleProfessionText} from "./3d-text/TitleProfessionText";
+import {ContactFormText} from "./3d-text/ContactFormText";
 
 export const ThreeDScene = () => {
     return (
@@ -31,7 +32,7 @@ export const ThreeDScene = () => {
                 <Suspense fallback={null}>
 
                     <OrbitControls
-                        enablePan={false}
+                        enablePan={true}
                         enableZoom={true}
 
                         // distance of camera creation
@@ -82,6 +83,8 @@ export const ThreeDScene = () => {
                         <TitleText />
                         <TitleProfessionText />
 
+                        <ContactFormText />
+
                         <ProjectsTitleText/>
                         <ProjectsListText/>
 
@@ -100,7 +103,7 @@ export const ThreeDScene = () => {
 
                         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade/>
 
-                        {/*<Walls/>*/}
+                        <Walls/>
 
                     </group>
                 </Suspense>

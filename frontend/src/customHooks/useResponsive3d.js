@@ -17,7 +17,7 @@ export const useResponsive3d = () => {
     const [titleYPosition, setTitleYPosition] = useState(6)
     const [titleGroupYPosition, setTitleGroupYPosition] = useState(0)
 
-    //variables for the profession text
+    //variables for the profession Title
     const [professionSize, setProfessionSize] = useState(1)
     const [professionTitleSize, setProfessionTitleSize] = useState(1.5)
     const [professionXPosition, setProfessionXPosition] = useState(-10)
@@ -58,6 +58,12 @@ export const useResponsive3d = () => {
     const [projectsExpNinjaExampleZPosition, setProjectsExpNinjaExampleZPosition] = useState(18)
     const [projectsExpNinjaExampleYPosition, setProjectsExpNinjaExampleYPosition] = useState(-8)
     const [projectsExpNinjaExampleYRotation, setProjectsExpNinjaExampleYRotation] = useState(2.3)
+
+    //variables for the Contact Form
+    const [contactFormTextSize, setContactFormTextSize] = useState(5)
+    const [contactFormTextXPosition, setContactFormTextXPosition] = useState(-20)
+    const [contactFormTextYPosition, setContactFormTextYPosition] = useState(7)
+    const [contactFormTextZPosition, setContactFormTextZPosition] = useState(10)
 
 //This determines the size of the window
     useEffect(() => {
@@ -111,6 +117,11 @@ export const useResponsive3d = () => {
                 setProjectsExpNinjaExampleYPosition(-8)
                 setProjectsExpNinjaExampleZPosition(18)
                 setProjectsExpNinjaExampleYRotation(2.3)
+                //set contact form text
+                setContactFormTextSize(2)
+                setContactFormTextXPosition(0)
+                setContactFormTextYPosition(0)
+                setContactFormTextZPosition(0)
             } else if (breakpoint > width) {
                 //set title
                 setTitleSize(3)
@@ -154,6 +165,10 @@ export const useResponsive3d = () => {
                 setProjectsExpNinjaExampleYPosition(-12)
                 setProjectsExpNinjaExampleZPosition(0)
                 setProjectsExpNinjaExampleYRotation(1.570796)
+                setContactFormTextSize(2)
+                setContactFormTextXPosition(0)
+                setContactFormTextYPosition(0)
+                setContactFormTextZPosition(0)
             }
         }
         handleResize()
@@ -196,7 +211,11 @@ export const useResponsive3d = () => {
         projectsExpNinjaExampleSize,
         projectsExpNinjaExampleYPosition,
         projectsExpNinjaExampleZPosition,
-        projectsExpNinjaExampleYRotation
+        projectsExpNinjaExampleYRotation,
+        contactFormTextSize,
+        contactFormTextXPosition,
+        contactFormTextYPosition,
+        contactFormTextZPosition
     }
 }
 
