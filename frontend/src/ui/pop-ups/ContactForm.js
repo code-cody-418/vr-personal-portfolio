@@ -37,18 +37,6 @@ export const ContactForm = () => {
             })
     }
 
-    // const submitContactForm = ({resetForm, setStatus}) => {
-    //     httpConfig.get("/apis/")
-    //         .then(reply => {
-    //             let { message, type } = reply
-    //
-    //             if(reply.status === 200 ) {
-    //                 resetForm()
-    //             }
-    //             setStatus({message, type})
-    //         })
-    // }
-
     return (
         <Formik
             initialValues={contactForm}

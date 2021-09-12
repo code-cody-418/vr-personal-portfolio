@@ -8,7 +8,6 @@ import {SkillsTitleText} from "./3d-text/SkillsTitleText";
 import {ProjectsTitleText} from "./3d-text/ProjectsTitleText";
 import {ProjectsListText} from "./3d-text/ProjectsListText";
 import {SkillsListText} from "./3d-text/SkillsListText";
-import {ContactFormModal} from "../pop-ups/ContactFormModal";
 import {ReferenceCenter, ReferenceProject, ReferenceSkills, RightArrow} from "./arrows/Arrows";
 import {Walls} from "./walls/Walls";
 import {SkillsIcons} from "./skills-icons/SkillsIcons";
@@ -32,7 +31,7 @@ export const ThreeDScene = () => {
                 <Suspense fallback={null}>
 
                     <OrbitControls
-                        enablePan={true}
+                        enablePan={false}
                         enableZoom={true}
 
                         // distance of camera creation
@@ -103,7 +102,7 @@ export const ThreeDScene = () => {
 
                         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade/>
 
-                        <Walls/>
+                        {/*<Walls/>*/}
 
                     </group>
                 </Suspense>
