@@ -13,6 +13,7 @@ import {Walls} from "./walls/Walls";
 import {SkillsIcons} from "./skills-icons/SkillsIcons";
 import {TitleProfessionText} from "./3d-text/TitleProfessionText";
 import {ContactFormText} from "./3d-text/ContactFormText";
+import Mouse from "../tutorial/Mouse";
 
 export const ThreeDScene = () => {
     return (
@@ -31,7 +32,7 @@ export const ThreeDScene = () => {
                 <Suspense fallback={null}>
 
                     <OrbitControls
-                        enablePan={false}
+                        enablePan={true}
                         enableZoom={true}
 
                         // distance of camera creation
@@ -94,6 +95,12 @@ export const ThreeDScene = () => {
                             <SkillsTitleText/>
                             <SkillsListText/>
                         </group>
+
+                        <Mouse
+                            position={[3, -6, -15]}
+                            rotation={[.4, -1.570796, 0]}
+                            scale={0.06}
+                        />
 
                         {/*<ReferenceCenter/>*/}
                         {/*<ReferenceProject/>*/}
