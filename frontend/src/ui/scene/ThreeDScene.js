@@ -13,9 +13,13 @@ import {Walls} from "./walls/Walls";
 import {SkillsIcons} from "./skills-icons/SkillsIcons";
 import {TitleProfessionText} from "./3d-text/TitleProfessionText";
 import {ContactFormText} from "./3d-text/ContactFormText";
-import Mouse from "../tutorial/Mouse";
+
+import Mouse01 from "../tutorial/Mouse01";
 
 export const ThreeDScene = () => {
+
+
+
     return (
         <>
             <VRCanvas
@@ -60,7 +64,6 @@ export const ThreeDScene = () => {
                     />
 
 
-
                     <ambientLight intensity={1}/>
                     {/*<directionalLight*/}
                     {/*    castShadow*/}
@@ -80,10 +83,22 @@ export const ThreeDScene = () => {
 
                     <Environment files={backgroundHDR} background={true}/>
                     <group>
-                        <TitleText />
-                        <TitleProfessionText />
+                        <group
 
-                        <ContactFormText />
+                        >
+                            <TitleText
+
+                            />
+                            <TitleProfessionText/>
+                            <Mouse01
+                                position={[3, -8, -15]}
+                                rotation={[.4, -1.3, .2]}
+                                scale={0.05}
+                            />
+
+                        </group>
+
+                        <ContactFormText/>
 
                         <ProjectsTitleText/>
                         <ProjectsListText/>
@@ -95,12 +110,6 @@ export const ThreeDScene = () => {
                             <SkillsTitleText/>
                             <SkillsListText/>
                         </group>
-
-                        <Mouse
-                            position={[3, -6, -15]}
-                            rotation={[.4, -1.570796, 0]}
-                            scale={0.06}
-                        />
 
                         {/*<ReferenceCenter/>*/}
                         {/*<ReferenceProject/>*/}
@@ -114,7 +123,7 @@ export const ThreeDScene = () => {
                     </group>
                 </Suspense>
             </VRCanvas>
-            <Loader />
+            <Loader/>
         </>
     )
 }
