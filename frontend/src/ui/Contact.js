@@ -1,5 +1,5 @@
 import React from "react";
-import {ContactForm} from "./pop-ups/ContactForm";
+import {ContactForm} from "./contact-form/ContactForm";
 
 export const Contact = () => {
     return (
