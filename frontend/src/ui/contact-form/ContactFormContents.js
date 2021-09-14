@@ -2,6 +2,7 @@ import React from "react";
 import {FormDebugger} from "./FormDebugger";
 import "./form-style.css"
 import video from "./contact-form-video-10mb.mp4"
+import {useHistory} from "react-router";
 
 
 export const ContactFormContents = (props) => {
@@ -19,6 +20,12 @@ export const ContactFormContents = (props) => {
     } = props
 
     // console.log("status", status.type, status.message)
+
+    let history = useHistory();
+
+    function handleClick() {
+        history.push("/");
+    }
 
     return (
         <>
@@ -161,7 +168,7 @@ export const ContactFormContents = (props) => {
                             <div>
                                 <button
                                     className="btn btn-info"
-                                    onClick={() => window.open("https://www.mycodingskillz.com/")}
+                                    type="button" onClick={handleClick}
                                 >Home
                                 </button>
                             </div>
