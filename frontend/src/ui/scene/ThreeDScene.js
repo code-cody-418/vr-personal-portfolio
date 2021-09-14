@@ -15,9 +15,10 @@ import {TitleProfessionText} from "./3d-text/TitleProfessionText";
 import {ContactFormText} from "./3d-text/ContactFormText";
 
 import Mouse01 from "../tutorial/Mouse01";
+import HandModel from "../tutorial/Hand-model";
+import Headset from "../tutorial/Headset01";
 
 export const ThreeDScene = () => {
-
 
 
     return (
@@ -94,6 +95,17 @@ export const ThreeDScene = () => {
                                 position={[3, -8, -15]}
                                 rotation={[.4, -1.3, .2]}
                                 scale={0.05}
+                            />
+                            <HandModel
+                                position={[-0.5, -6.5, -15]}
+                                rotation={[0.4, 0, 0]}
+                                scale={3}
+                            />
+                            <Headset
+                                position={[2, -15, -15]}
+                                // rotation={[-1.5708, 0, 0]}
+                                rotation={[0, 0, 0]}
+                                scale={1}
                             />
 
                         </group>

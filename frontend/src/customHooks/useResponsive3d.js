@@ -10,6 +10,10 @@ export const useResponsive3d = () => {
     //setWidth is the current windows width in px
     const [width, setWidth] = useState(window.innerWidth)
 
+    const xr = navigator.xr;
+
+    console.log("is xr on?", xr)
+
     //these states change based on the breakpoints
     //variables for the title page
     const [titleSize, setTitleSize] = useState(5)
@@ -72,6 +76,11 @@ export const useResponsive3d = () => {
     const [contactButtonYPosition, setContactButtonYPosition] = useState(-9)
     const [contactButtonZPosition, setContactButtonZPosition] = useState(-15)
 
+    //determines if 3d-mouse or 3d-finger or VR Headset should be visible
+    const [mouseVisible, setMouseVisible] = useState(true)
+    const [fingerVisible, setFingerVisible] = useState(false)
+
+
 //This determines the size of the window
     useEffect(() => {
         const handleWindowResize = () => setWidth(window.innerWidth)
@@ -82,7 +91,10 @@ export const useResponsive3d = () => {
     //this sets the sizes and positions of 3d objects based on the size of the window and a breaking point
     useEffect(() => {
         const handleResize = () => {
-            if (breakpoint < width) {
+            if (xr !== undefined || null) {
+                setFingerVisible(false)
+                setMouseVisible(false)
+            } else if (breakpoint < width) {
                 //set title
                 setTitleSize(5)
                 setTitleXPosition(-9)
@@ -135,6 +147,9 @@ export const useResponsive3d = () => {
                 setContactButtonXPosition(-16)
                 setContactButtonYPosition(-9)
                 setContactButtonZPosition(-15)
+                //set 3d mouse and finger visibility
+                setMouseVisible(true)
+                setFingerVisible(false)
             } else if (breakpoint > width) {
                 //set title
                 setTitleSize(3)
@@ -188,6 +203,9 @@ export const useResponsive3d = () => {
                 setContactButtonXPosition(-0.5)
                 setContactButtonYPosition(-9.5)
                 setContactButtonZPosition(-15)
+                //set 3d mouse and finger visibility
+                setMouseVisible(false)
+                setFingerVisible(true)
             }
         }
         handleResize()
@@ -239,7 +257,9 @@ export const useResponsive3d = () => {
         contactButtonHeightSize,
         contactButtonXPosition,
         contactButtonYPosition,
-        contactButtonZPosition
+        contactButtonZPosition,
+        mouseVisible,
+        fingerVisible
     }
 }
 
