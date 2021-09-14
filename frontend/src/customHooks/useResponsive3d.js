@@ -79,6 +79,7 @@ export const useResponsive3d = () => {
     //determines if 3d-mouse or 3d-finger or VR Headset should be visible
     const [mouseVisible, setMouseVisible] = useState(true)
     const [fingerVisible, setFingerVisible] = useState(false)
+    const [headsetVisible, setHeadsetVisible] = useState(false)
 
 
 //This determines the size of the window
@@ -94,6 +95,7 @@ export const useResponsive3d = () => {
             if (xr !== undefined || null) {
                 setFingerVisible(false)
                 setMouseVisible(false)
+                setHeadsetVisible(true)
             } else if (breakpoint < width) {
                 //set title
                 setTitleSize(5)
@@ -259,7 +261,8 @@ export const useResponsive3d = () => {
         contactButtonYPosition,
         contactButtonZPosition,
         mouseVisible,
-        fingerVisible
+        fingerVisible,
+        headsetVisible
     }
 }
 

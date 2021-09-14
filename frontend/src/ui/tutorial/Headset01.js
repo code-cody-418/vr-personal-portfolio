@@ -21,7 +21,7 @@ export default function Headset(props) {
     return () => actions[action].fadeOut(0.5)
   }, [actions, action]);
 
-  // const {fingerVisible} = useResponsive3d()
+  const {headsetVisible} = useResponsive3d()
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -30,6 +30,7 @@ export default function Headset(props) {
       >
         <group
             // position={[-4.38, -3.05, -2.58]}
+            visible = {headsetVisible}
         >
           <mesh geometry={nodes.Mesh_0.geometry} material={materials.base} />
           <mesh geometry={nodes.Mesh_1.geometry} material={materials.checker} />
