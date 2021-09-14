@@ -152,11 +152,21 @@ export const ContactFormContents = (props) => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col">
+                        <div className="col-md-2">
                             <div className="form-group">
                                 <button className="btn btn-primary" type="submit">Submit</button>
                             </div>
                         </div>
+                        <div className="col-md-2">
+                            <div>
+                                <button
+                                    className="btn btn-info"
+                                    onClick={() => window.open("https://www.mycodingskillz.com/")}
+                                >Home
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                     {/*<FormDebugger {...props} />*/}
                 </form>
