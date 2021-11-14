@@ -63,11 +63,11 @@ export const ProjectsExamples = ({exampleState}) => {
                     />
                 </mesh>
             </group>
-            <Kakashi
-                position={[-19, projectsExpNinjaExampleYPosition, projectsExpNinjaExampleZPosition]}
-                rotation={[0, projectsExpNinjaExampleYRotation, 0]}
-                expNinjaVisible={expNinjaVisible}
-            />
+            {/*<Kakashi*/}
+            {/*    position={[-19, projectsExpNinjaExampleYPosition, projectsExpNinjaExampleZPosition]}*/}
+            {/*    rotation={[0, projectsExpNinjaExampleYRotation, 0]}*/}
+            {/*    expNinjaVisible={expNinjaVisible}*/}
+            {/*/>*/}
 
         </>
     )

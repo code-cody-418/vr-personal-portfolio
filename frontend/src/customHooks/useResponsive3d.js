@@ -12,7 +12,7 @@ export const useResponsive3d = () => {
 
     const xr = navigator.xr;
 
-    console.log("is xr on?", xr)
+    // console.log("is xr on?", xr)
 
     //these states change based on the breakpoints
     //variables for the title page

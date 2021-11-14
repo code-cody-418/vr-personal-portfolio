@@ -13,10 +13,10 @@ export default function Mouse01(props) {
     const {actions} = useAnimations(animations, group)
 
 //sets mouse movement
-    const [action, setAction] = useState("mouseStill")
+    const [action, setAction] = useState("mouseMove")
 
     // const [action, setAction] = useState("mouseMove")
-    const [mouseButtonColor, setMouseButtonColor] = useState("#FFF")
+    const [mouseButtonColor, setMouseButtonColor] = useState("#a0e734")
 
     useEffect(() => {
         actions[action].reset().fadeIn(0.5).play()
