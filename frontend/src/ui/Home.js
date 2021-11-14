@@ -64,11 +64,11 @@ export const Home = () => {
                     </Col>
                 </Row>
                 <Row hidden={hideLoadScene} className="align-items-center text-right ">
-                    <Col sm={6} hidden={hideLoadScene} className="px-0">
+                    <Col xs={8} sm={6} hidden={hideLoadScene} className="px-0">
                         <h2 hidden={hideLoadScene}>Loading...</h2>
 
                     </Col>
-                    <Col sm={6} hidden={hideLoadScene} className="px-0">
+                    <Col xs={6} sm={6} hidden={hideLoadScene} className="px-0">
                         <ProgressBar animated now={loadingProgress} hidden={hideLoadScene}
                                      className="the-progress-bar"/>
                     </Col>
