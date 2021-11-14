@@ -9,11 +9,12 @@ export const ProjectsExamples = ({exampleState}) => {
     //loads textures for the examples
     const saiyanWebDevExample = useTexture("/saiyanwebdev-example.png")
     const alienGramExample = useTexture("/aliengram-example.png")
+    const expNinjaExample = useTexture("/expNinja-example.png")
 
     //sets state for the current example to be shown
     const [currentExample, setCurrentExample] = useState(null)
     const [currentExampleVisible, setCurrentExampleVisible] = useState(true)
-    const [expNinjaVisible, setExpNinjaVisible] = useState(false)
+    // const [expNinjaVisible, setExpNinjaVisible] = useState(false)
 
 
     //determines which icon is showing
@@ -21,12 +22,13 @@ export const ProjectsExamples = ({exampleState}) => {
         if (exampleState === "saiyanWebDevActive") {
             setCurrentExample(saiyanWebDevExample)
             setCurrentExampleVisible(true)
-            setExpNinjaVisible(false)
+            // setExpNinjaVisible(false)
         } else if (exampleState === "expNinjaActive") {
-            setCurrentExampleVisible(false)
-            setExpNinjaVisible(true)
+            setCurrentExampleVisible(true)
+            setCurrentExample(expNinjaExample)
+            // setExpNinjaVisible(true)
         } else if (exampleState === "alienGramActive") {
-            setExpNinjaVisible(false)
+            // setExpNinjaVisible(false)
             setCurrentExampleVisible(true)
             setCurrentExample(alienGramExample)
         }
