@@ -18,7 +18,9 @@ import Mouse01 from "../tutorial/Mouse01";
 import HandModel from "../tutorial/Hand-model";
 import Headset from "../tutorial/Headset01";
 
-export const ThreeDScene = ({hideScene}) => {
+import '../../ui/scene/sceneStyle.css'
+
+export const ThreeDScene = ({hide3DScene}) => {
     return (
         <>
             <VRCanvas
@@ -28,6 +30,7 @@ export const ThreeDScene = ({hideScene}) => {
                 // onCreated={({camera}) => camera.lookAt(0, 0, -35)}
                 // orthographic={true}
                 // style={{opacity: hideScene}}
+                className={hide3DScene}
             >
                 <DefaultXRControllers/>
                 <Hands/>
