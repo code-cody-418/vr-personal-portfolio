@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {ThreeDScene} from "./scene/ThreeDScene";
 import './scene/sceneStyle.css'
-import {Container, ProgressBar, Row} from "react-bootstrap";
+import {Col, Container, ProgressBar, Row} from "react-bootstrap";
 
 
 //if xr is NOT on load css to hide xr button
@@ -38,7 +38,7 @@ export const Home = () => {
     useEffect(() => {
         if (timerOnOff === true) {
             if (thirtySeconds === 4) {
-                setDescriptionState("Welcome to My 3D Portfolio ")
+                setDescriptionState("Welcome to My 3D Portfolio")
                 setLoadingProgress(25)
             } else if (thirtySeconds === 3) {
                 setLoadingProgress(50)
@@ -51,20 +51,28 @@ export const Home = () => {
                 setDescriptionState("")
                 setTimerOnOff(false)
                 setHideLoadScreen(true)
-
             }
         }
     }, [thirtySeconds])
 
     return (
         <>
-            <Container fluid hidden={hideLoadScene} className="background-image">
-                <Row hidden={hideLoadScene}>
-                    <h1 hidden={hideLoadScene}>{descriptionState}</h1>
+            <Container fluid hidden={hideLoadScene} className="background-image content-positioning-title">
+                <Row hidden={hideLoadScene} className="align-items-center text-center ">
+                    <Col sm={12} hidden={hideLoadScene}>
+                        <h1 hidden={hideLoadScene}>{descriptionState}</h1>
+                    </Col>
                 </Row>
-                <Row hidden={hideLoadScene}>
-                    <h2>Loading...</h2>
-                    <ProgressBar animated now={loadingProgress} hidden={hideLoadScene} className="the-progress-bar"/>
+                <Row hidden={hideLoadScene} className="align-items-center text-right ">
+                    <Col sm={6} hidden={hideLoadScene} className="px-0">
+                        <h2 hidden={hideLoadScene}>Loading...</h2>
+
+                    </Col>
+                    <Col sm={6} hidden={hideLoadScene} className="px-0">
+                        <ProgressBar animated now={loadingProgress} hidden={hideLoadScene}
+                                     className="the-progress-bar"/>
+                    </Col>
+
                 </Row>
 
             </Container>

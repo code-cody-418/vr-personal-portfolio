@@ -35,7 +35,7 @@ body,
 
 .main-canvas {
     opacity: 100;
-    animation-duration: 15s;
+    animation-duration: 25s;
     animation-name: fade-in;
 }
 
@@ -49,6 +49,24 @@ body,
 }
 
 .the-progress-bar {
-    width: 35vw;
-    height: 2.7em !important;
+    width: 15vw !important;
+    height: 1.5em !important;
+}
+
+.content-positioning-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*text-align: center;*/
+    min-height: 75vh;
+}
+
+.content-positioning-loading{
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+    /*text-align: center;*/
+    min-height: 50vh;
 }
