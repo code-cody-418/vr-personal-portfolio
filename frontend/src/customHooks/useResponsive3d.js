@@ -56,7 +56,7 @@ export const useResponsive3d = () => {
     const [projectsTextZPosition, setProjectsTextZPosition] = useState(0)
     const [projectsExampleSize, setProjectsExampleSize] = useState(14)
     const [projectsExampleZPosition, setProjectsExampleZPosition] = useState(18)
-    const [projectsExampleYPosition, setProjectsExampleYPosition] = useState(0)
+    const [projectsExampleYPosition, setProjectsExampleYPosition] = useState(-9)
     const [projectsExampleYRotation, setProjectsExampleYRotation] = useState(2.3)
     const [projectsExpNinjaExampleSize, setProjectsExpNinjaExampleSize] = useState(0.08)
     const [projectsExpNinjaExampleZPosition, setProjectsExpNinjaExampleZPosition] = useState(18)
@@ -96,7 +96,7 @@ export const useResponsive3d = () => {
                 setFingerVisible(false)
                 setMouseVisible(false)
                 setHeadsetVisible(true)
-            } else if (breakpoint < width) {
+            } else if (breakpoint < width) { //desktop positioning
                 //set title
                 setTitleSize(5)
                 setTitleXPosition(-9)
@@ -152,7 +152,7 @@ export const useResponsive3d = () => {
                 //set 3d mouse and finger visibility
                 setMouseVisible(true)
                 setFingerVisible(false)
-            } else if (breakpoint > width) {
+            } else if (breakpoint > width) { //desktop positioning
                 //set title
                 setTitleSize(3)
                 setTitleXPosition(-5)
@@ -189,7 +189,7 @@ export const useResponsive3d = () => {
                 setProjectsTextZPosition(-2)
                 setProjectsExampleSize(14)
                 setProjectsExampleZPosition(0)
-                setProjectsExampleYPosition(-6)
+                setProjectsExampleYPosition(-9)
                 setProjectsExampleYRotation(1.570796)
                 setProjectsExpNinjaExampleSize(0.05)
                 setProjectsExpNinjaExampleYPosition(-12)

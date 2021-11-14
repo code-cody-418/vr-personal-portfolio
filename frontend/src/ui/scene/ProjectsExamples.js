@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useTexture} from "@react-three/drei";
 import {useResponsive3d} from "../../customHooks/useResponsive3d";
-import Kakashi from "./Kakashi";
+
 
 
 export const ProjectsExamples = ({exampleState}) => {

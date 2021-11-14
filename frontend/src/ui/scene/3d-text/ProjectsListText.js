@@ -1,7 +1,6 @@
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three"
 import {useLoader} from "@react-three/fiber";
-import Kakashi from "../Kakashi";
 import {ProjectsExamples} from "../ProjectsExamples";
 import {useResponsive3d} from "../../../customHooks/useResponsive3d";
 
