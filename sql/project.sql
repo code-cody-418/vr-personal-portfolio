@@ -7,6 +7,7 @@
 # DROP TABLE IF EXISTS image;
 # DROP TABLE IF EXISTS tweet;
 # DROP TABLE IF EXISTS `profile`;
+DROP TABLE IF EXISTS wowRealms;
 
 CREATE TABLE wowRealms (
   realmId VARCHAR(10),

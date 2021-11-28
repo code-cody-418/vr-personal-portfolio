@@ -5,3 +5,5 @@ export const indexRoute = Router()
 
 indexRoute.route("/")
     .get(indexController)
+
+
