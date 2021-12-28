@@ -15,7 +15,7 @@ export const Cube = (props) => {
 
     return (
         <>
-<mesh ref={ref} onClick={(e) => console.log("is this on", e )}>
+<mesh castShadow={true} ref={ref} onClick={(e) => console.log("is this on", e )}>
     <boxGeometry />
     <meshStandardMaterial color={"#f30707"} />
 </mesh>
