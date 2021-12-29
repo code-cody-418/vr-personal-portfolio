@@ -11,13 +11,16 @@ export const FPVControls = (props) => {
 
     const controls = useRef()
 
+
+
     useEffect(() => {
         document.addEventListener('click', () => {
             controls.current.lock()
         })
+        // console.log("controls", controls)
     }, [])
 
-    // console.log("camera", camera)
+    // console.log("gl", gl.domElement)
 
     return (
         <>
@@ -29,3 +32,6 @@ export const FPVControls = (props) => {
         </>
     )
 }
+
+
+

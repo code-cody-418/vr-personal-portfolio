@@ -1,17 +1,16 @@
-import React, {useEffect, useRef} from "react";
-
-import {useSphere} from "@react-three/cannon";
+import React, {useRef} from "react";
 import {useFrame, useThree} from "@react-three/fiber";
 import {useKeyboardControls} from "../hooks/useKeyboardControls";
-import {Vector3} from "three";
 import {FPVControls} from "./FPVControls";
+import {Vector3} from "three";
+import {useSphere} from "@react-three/cannon";
 
-const SPEED = 6
+const SPEED = 0.1
 
 export const Player = (props) => {
-
     const {camera} = useThree()
 
+    //sphere movement controls
     const {
         moveForward,
         moveBackward,
@@ -20,32 +19,29 @@ export const Player = (props) => {
         jump
     } = useKeyboardControls()
 
-    // console.log("move forward", moveForward, "backward", moveBackward, "left", moveLeft, "right", moveRight)
 
-    const [ref, api] = useSphere(() => ({
+    const [player, api] = useSphere(() => ({
         mass: 1,
         type: 'Dynamic',
         ...props
     }))
 
-    const velocity = useRef([0, 0, 0])
+    const ref = useRef()
 
-    useEffect(() => {
-        api.velocity.subscribe((v) => (velocity.current = v))
-    }, [api.velocity])
 
     useFrame(() => {
         camera.position.copy(ref.current.position)
+
         const direction = new Vector3()
 
         const frontVector = new Vector3(
             0,
             0,
-            (moveBackward ? 1 : 0) - (moveForward ? 1 : 0)
+            (moveBackward ? 0.1 : 0) - (moveForward ? 0.1 : 0)
         )
 
         const sideVector = new Vector3(
-            (moveLeft ? 1 : 0) - (moveRight ? 1 : 0),
+            (moveLeft ? 0.1 : 0) - (moveRight ? 0.1 : 0),
             0,
             0
         )
@@ -56,20 +52,24 @@ export const Player = (props) => {
             .multiplyScalar(SPEED)
             .applyEuler(camera.rotation)
 
-        api.velocity.set(direction.x, velocity.current[1], direction.z)
+        ref.current.position.x = (ref.current.position.x + direction.x)
+        ref.current.position.z = (ref.current.position.z + direction.z)
 
-        // console.log("direction", direction)
-
+        // api.velocity.set(direction.x, 0, direction.z)
     })
 
-console.log("camera", camera)
-    console.log("ref", ref, "api", api)
-
+    // console.log("ref position", ref)
 
     return (
         <>
             <FPVControls/>
-            <mesh ref={ref}/>
+
+            {/*<group ref={player}>*/}
+                <mesh ref={ref} position={[0, 1, 10]}>
+                    <sphereGeometry/>
+                    <meshStandardMaterial color={"#f30707"}/>
+                </mesh>
+            {/*</group>*/}
         </>
     )
 }

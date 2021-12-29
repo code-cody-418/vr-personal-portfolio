@@ -1,16 +1,20 @@
-import React from "react";
+import React, {useRef} from "react";
 import {Canvas} from "@react-three/fiber";
 import {Ground} from "./components/Ground";
 import {OrbitControls, Sky} from "@react-three/drei";
-import {Physics} from "@react-three/cannon";
+import {Physics, Debug} from "@react-three/cannon";
 import {Cube} from "./components/Cube";
 import {Player} from "./components/Player";
 
 
+
 export const ThreeDRoom = () => {
+
+
+
     return (
         <>
-            <Canvas shadows>
+            <Canvas shadows >
 
                 {/*<Sky sunPosition={[100, 20, 100]}/>*/}
 
@@ -34,6 +38,11 @@ export const ThreeDRoom = () => {
 
                 <Physics gravity={[0, -30, 0]}>
 
+                    {/*<mesh position={[3, 3, 3]} onClick={(e) => console.log("is this on", e )}>*/}
+                    {/*    <boxGeometry />*/}
+                    {/*    <meshStandardMaterial color={"#07f3b0"} />*/}
+                    {/*</mesh>*/}
+
                     <Cube/>
                     <Ground position={[0, 0.5, 0]}/>
                     <Player position={[0, 3, 10]}/>
@@ -43,3 +52,6 @@ export const ThreeDRoom = () => {
         </>
     )
 }
+
+
+
