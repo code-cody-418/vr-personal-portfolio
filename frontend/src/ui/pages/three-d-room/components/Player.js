@@ -23,11 +23,18 @@ export const Player = (props) => {
 
     const ref = useRef()
 
-    const [walk, setWalk] = useState(false)
+    const [walking, setWalking] = useState(false)
 
     useEffect( () => {
-        console.log("move forward", moveForward)
-    })
+
+        if(moveForward === true || moveBackward === true ||moveLeft === true ||moveRight === true) {
+            setWalking(true)
+            console.log("walking", walking)
+        } else {
+            setWalking(false)
+            console.log("stop walking", walking)
+        }
+    }, [moveForward, moveBackward, moveLeft, moveRight])
 
 
 
@@ -74,7 +81,7 @@ export const Player = (props) => {
             <FPVControls/>
 
             <group ref={ref}>
-            <Kakashi kakashiAction={"walk"} name={"kakashi"}/>
+            <Kakashi kakashiAction={"walk"} name={"kakashi"} walking={walking}/>
             </group>
 
 
