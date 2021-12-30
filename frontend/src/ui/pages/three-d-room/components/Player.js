@@ -30,7 +30,14 @@ export const Player = (props) => {
 
 
     useFrame(() => {
+
+
+
         camera.position.copy(ref.current.position)
+        camera.position.z = (ref.current.position.z + 3)
+        camera.position.y = ref.current.position.y + 1
+
+        // camera.lookAt(ref.current.position.x, ref.current.position.y,  ref.current.position.z)
 
         const direction = new Vector3()
 
@@ -58,18 +65,18 @@ export const Player = (props) => {
         // api.velocity.set(direction.x, 0, direction.z)
     })
 
-    // console.log("ref position", ref)
+
 
     return (
         <>
             <FPVControls/>
 
-            {/*<group ref={player}>*/}
-                <mesh ref={ref} position={[0, 1, 10]}>
-                    <sphereGeometry/>
+            <group>
+                <mesh ref={ref} position={[0, 2, 0]}>
+                    <sphereGeometry />
                     <meshStandardMaterial color={"#f30707"}/>
                 </mesh>
-            {/*</group>*/}
+            </group>
         </>
     )
 }

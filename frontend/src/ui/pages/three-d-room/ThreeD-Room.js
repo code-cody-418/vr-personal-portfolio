@@ -45,7 +45,7 @@ export const ThreeDRoom = () => {
 
                     <Cube/>
                     <Ground position={[0, 0.5, 0]}/>
-                    <Player position={[0, 3, 10]}/>
+                    <Player />
 
                 </Physics>
             </Canvas>
