@@ -5,6 +5,7 @@ import {OrbitControls, Sky} from "@react-three/drei";
 import {Physics, Debug} from "@react-three/cannon";
 import {Cube} from "./components/Cube";
 import {Player} from "./components/Player";
+import Kakashi from "./models/Kakashi";
 
 
 
@@ -43,9 +44,11 @@ export const ThreeDRoom = () => {
                     {/*    <meshStandardMaterial color={"#07f3b0"} />*/}
                     {/*</mesh>*/}
 
-                    <Cube/>
-                    <Ground position={[0, 0.5, 0]}/>
+                    {/*<Cube/>*/}
+                    <Ground position={[0, 0, 0]}/>
                     <Player />
+
+
 
                 </Physics>
             </Canvas>

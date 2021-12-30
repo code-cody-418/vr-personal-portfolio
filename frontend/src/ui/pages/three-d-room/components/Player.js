@@ -1,9 +1,10 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {useFrame, useThree} from "@react-three/fiber";
 import {useKeyboardControls} from "../hooks/useKeyboardControls";
 import {FPVControls} from "./FPVControls";
 import {Vector3} from "three";
 import {useSphere} from "@react-three/cannon";
+import Kakashi from "../models/Kakashi";
 
 const SPEED = 0.1
 
@@ -20,13 +21,14 @@ export const Player = (props) => {
     } = useKeyboardControls()
 
 
-    const [player, api] = useSphere(() => ({
-        mass: 1,
-        type: 'Dynamic',
-        ...props
-    }))
-
     const ref = useRef()
+
+    const [walk, setWalk] = useState(false)
+
+    useEffect( () => {
+        console.log("move forward", moveForward)
+    })
+
 
 
     useFrame(() => {
@@ -71,12 +73,16 @@ export const Player = (props) => {
         <>
             <FPVControls/>
 
-            {/*<group ref={player}>    */}
-                <mesh ref={ref} position={[0, 2, 0]}>
-                    <sphereGeometry />
-                    <meshStandardMaterial color={"#f30707"}/>
-                </mesh>
-            {/*</group>*/}
+            <group ref={ref}>
+            <Kakashi kakashiAction={"walk"} name={"kakashi"}/>
+            </group>
+
+
+                {/*<mesh ref={ref} position={[0, 2, 0]}>*/}
+                {/*    <sphereGeometry />*/}
+                {/*    <meshStandardMaterial color={"#f30707"}/>*/}
+                {/*</mesh>*/}
+
         </>
     )
 }
