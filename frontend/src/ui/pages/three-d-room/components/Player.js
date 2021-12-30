@@ -71,12 +71,12 @@ export const Player = (props) => {
         <>
             <FPVControls/>
 
-            <group>
+            {/*<group ref={player}>    */}
                 <mesh ref={ref} position={[0, 2, 0]}>
                     <sphereGeometry />
                     <meshStandardMaterial color={"#f30707"}/>
                 </mesh>
-            </group>
+            {/*</group>*/}
         </>
     )
 }
