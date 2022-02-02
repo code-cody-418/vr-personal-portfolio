@@ -6,6 +6,8 @@ import React, {useEffect, useRef, useState} from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import kakashiGLB from "./kakashi.glb"
 import {useBox, useSphere} from "@react-three/cannon";
+import { useFrame, useThree } from '@react-three/fiber';
+import { useKeyboardControls } from '../hooks/useKeyboardControls';
 
 
 export default function   Kakashi(props) {
@@ -13,13 +15,21 @@ export default function   Kakashi(props) {
   const { nodes, materials, animations } = useGLTF(kakashiGLB)
   const { actions } = useAnimations(animations, group)
 
-  const [player, api] = useBox(() => ({
+  const [player] = useBox(() => ({
     mass: 1,
-    rotation: [Math.PI / 2, 0, Math.PI],
-    position: [0, 0, 0],
+    rotation: [Math.PI / 2, 0, -Math.PI /2],
+    position: [0, 0, -2],
     // type: 'Dynamic',
     // ...props
   }))
+
+  const {
+    moveForward,
+    moveBackward,
+    moveLeft,
+    moveRight,
+    jump
+} = useKeyboardControls
 
 
 
@@ -43,6 +53,19 @@ export default function   Kakashi(props) {
       return setVisible(false)
   }, [props.name])
 
+  // const {camera} = useThree()
+
+  function degInRad(deg) {
+    return deg * Math.PI / 180;
+}
+
+const rotationRef = useRef()
+
+  useFrame( ({ clock }) => {
+  // player.current.rotation.z += (moveLeft ? degInRad(1) : 0 || moveRight ? degInRad(-1) : 0)
+player.current.rotation.z += degInRad(1) 
+})
+
   return (
     <group ref={group} dispose={null}>
       <group
@@ -51,7 +74,7 @@ export default function   Kakashi(props) {
           // position={[0, 1, 0]}
           scale={0.01}
           visible={visible}>
-        <primitive object={nodes.mixamorigHips} />
+        <primitive object={nodes.mixamorigHips} ref={rotationRef} />
         <skinnedMesh
             castShadow
           geometry={nodes.Hatake_Kakashi_1.geometry}

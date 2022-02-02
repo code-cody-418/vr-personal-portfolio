@@ -5,6 +5,7 @@ import {FPVControls} from "./FPVControls";
 import {Vector3} from "three";
 import {useBox, useSphere} from "@react-three/cannon";
 import Kakashi from "../models/Kakashi";
+import { PointerLockControls } from "../PointerLockControls";
 
 const SPEED = 0.1
 
@@ -55,6 +56,12 @@ export const Player = (props) => {
 
 // console.log("api", api.position.subscribe(v => console.log("v",v)))
 
+const [mouseClicked, setMouseClicked] = useState(false)
+
+function degInRad(deg) {
+    return deg * Math.PI / 180;
+}
+
     useFrame(() => {
 
         // //working using velocity. Gets the camera position to follow the position of the ref
@@ -65,8 +72,14 @@ export const Player = (props) => {
 
         // working using position
                 camera.position.copy(ref.current.position)
-                camera.position.z = (ref.current.position.z + 3)
+                // camera.position.x = (ref.current.position.x)
+                // camera.position.z = (ref.current.position.z + 3)
                 camera.position.y = ref.current.position.y + 1
+
+                //this sets the 3d person viewing camera. which follows the character
+                if(mouseClicked === false){
+                camera.rotation.copy(ref.current.rotation)
+                }
 
 
         const direction = new Vector3()
@@ -92,6 +105,13 @@ export const Player = (props) => {
         //working using position
         ref.current.position.x = (ref.current.position.x + direction.x)
         ref.current.position.z = (ref.current.position.z + direction.z)
+        
+
+        //this rotates the character group when left or right is pushed
+        ref.current.rotation.y += (moveLeft ? degInRad(1) : 0 || moveRight ? degInRad(-1) : 0)
+        
+        // camera.position.x += (moveLeft ? direction.x : 0 || moveRight ? direction.x : 0)
+        // camera.position.z += (moveLeft ? direction.x : 0 || moveRight ? direction.z : 0)
 
         //working using velocity
         // api.velocity.set(direction.x, 0, direction.z)
@@ -99,12 +119,19 @@ export const Player = (props) => {
     })
 
 
+
+
     return (
         <>
-            <FPVControls/>
+            {/* <FPVControls/> */}
+            {/* these pointer lock controls are not working are not working */}
+            {
+
+            }
+            <PointerLockControls />
 
             <group ref={ref}>
-            <Kakashi kakashiAction={"walk"} name={"kakashi"} walking={walking}/>
+            <Kakashi kakashiAction={"walk"} name={"kakashi"} walking={walking} groupRotationY={ ref.current ? ref.current.rotation.y : 0}/>
             </group>
 
 
