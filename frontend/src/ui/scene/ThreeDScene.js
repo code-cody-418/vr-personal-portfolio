@@ -1,16 +1,13 @@
-import React, {Suspense, useEffect, useState} from "react";
-import {Environment, OrthographicCamera, PerspectiveCamera, Stars} from "@react-three/drei";
+import React, {Suspense} from "react";
+import {Environment, Stars} from "@react-three/drei";
 import backgroundHDR from "./black-hdri.HDR"
 import {VRCanvas, DefaultXRControllers, Hands} from "@react-three/xr";
-import {OrbitControls, Loader} from "@react-three/drei";
+import {OrbitControls} from "@react-three/drei";
 import {TitleText} from "./3d-text/TitleText";
 import {SkillsTitleText} from "./3d-text/SkillsTitleText";
 import {ProjectsTitleText} from "./3d-text/ProjectsTitleText";
 import {ProjectsListText} from "./3d-text/ProjectsListText";
 import {SkillsListText} from "./3d-text/SkillsListText";
-import {ReferenceCenter, ReferenceProject, ReferenceSkills, RightArrow} from "./arrows/Arrows";
-import {Walls} from "./walls/Walls";
-import {SkillsIcons} from "./skills-icons/SkillsIcons";
 import {TitleProfessionText} from "./3d-text/TitleProfessionText";
 import {ContactFormText} from "./3d-text/ContactFormText";
 

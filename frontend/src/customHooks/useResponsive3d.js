@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 
 // A responsive hook that returns sizes and positions as a number for 3D objects to be mobile Responcive
 
