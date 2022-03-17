@@ -14,7 +14,7 @@ body,
 
 .loading {
     color: white;
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 45%;
 }
